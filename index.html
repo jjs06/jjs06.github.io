@@ -1,1 +1,70 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><link rel="icon" href="/favicon.ico"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#000000"/><meta name="description" content="Web site created using create-react-app"/><link rel="apple-touch-icon" href="/logo192.png"/><link rel="manifest" href="/manifest.json"/><title>React App</title><script defer="defer" src="/static/js/main.4736e8eb.js"></script><link href="/static/css/main.434f53df.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div></body></html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css/main.css">
+
+    <script>
+        window.onload = function () {
+            
+            var app = document.getElementById('app');
+
+            var typewriter = new Typewriter(app, {
+                loop: true
+            });
+
+            typewriter.typeString(`WELCOME`)
+                .pauseFor(2500)
+                .deleteAll()
+                .typeString(`YUJIN'S`)
+                .pauseFor(2500)
+                .deleteAll()
+                .typeString(`PORTFOLIO`)
+                .pauseFor(2500)
+                .deleteAll()
+                // .typeString('<strong>FrontEnd Developer</strong>')
+                // .pauseFor(2500)
+                .start();
+        }
+    </script>
+
+</head>
+
+<body>
+    <div class="section_worap">
+        <div class="sc sc1">
+            <div class="m-title">
+                <div id="app"></div>
+                <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+
+                <div class="n-btn">
+                    <div class="ic">
+                        <img src="img/mouse.svg" alt="">
+                    </div>
+                    <p>start</p>
+                </div>
+            </div>
+            <div class="sc sc2">
+                <h2>프로필</h2>
+
+                <div class="profil">
+                    <img src="img/profil_test.png" alt="">
+                    <div>
+                        <h3>오유진</h3>
+                        <div>
+                            E-mail: likebook06 @ gmail.com
+                            git-hub: https://github.com/jjs06/
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
