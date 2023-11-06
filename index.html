@@ -7,10 +7,14 @@
     <title>Document</title>
 
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <script>
         window.onload = function () {
-            
+
             var app = document.getElementById('app');
 
             var typewriter = new Typewriter(app, {
@@ -26,15 +30,71 @@
                 .typeString(`PORTFOLIO`)
                 .pauseFor(2500)
                 .deleteAll()
-                // .typeString('<strong>FrontEnd Developer</strong>')
-                // .pauseFor(2500)
                 .start();
+
+
+            var swiper = new Swiper(".mySwiper", {
+                effect: "cards",
+                grabCursor: true,
+            });
         }
+
+        $(function () {
+
+            $('.p-btn').click(function () {
+                $(this).css('z-index', 5);
+                $(this).siblings().css('z-index', 0);
+
+                let i = $(this).index();
+
+                $('.pj-content').eq(i).show().css('display', 'flex');
+                $('.pj-content').eq(i).siblings().hide();
+            });
+
+            for (i in $('.swiper-slide')) {
+                $('.swiper-slide').eq(i).click(function () {
+                    let h = $(this).children('img').innerHeight();
+                    let v = $(this).innerHeight();
+
+                    $(this).children('img').animate({
+                        top: -(h - v)
+                    }, 10000).animate({
+                        top: 0
+                    }, 10000);
+                });
+            }
+
+            $('.sks>h3').click(function () {
+
+                $(this).addClass('tc')
+                $(this).parent().siblings().children().removeClass('tc')
+
+                let i = $(this).parent().index();
+
+                $('.sk').eq(i).show().css('display', 'flex');
+                $('.sk').eq(i).siblings().hide();
+            });
+
+            let th = $('h2').outerHeight(true);
+            console.log(th);
+            $('.ch').css('height', `calc(100% - ${th}px)`);
+
+            // for(i in $('.meuu_b')){
+
+            // }
+
+        });
     </script>
 
 </head>
 
 <body>
+    <header>
+        <div class="box">
+            <img src="img/sign.svg" alt="">
+        </div>
+    </header>
+
     <div class="section_worap">
         <div class="sc sc1">
             <div class="m-title">
@@ -48,22 +108,204 @@
                     <p>start</p>
                 </div>
             </div>
-            <div class="sc sc2">
-                <h2>프로필</h2>
+        </div>
+        <div class="sc sc2">
 
-                <div class="profil">
-                    <img src="img/profil_test.png" alt="">
-                    <div>
-                        <h3>오유진</h3>
-                        <div>
-                            E-mail: likebook06 @ gmail.com
-                            git-hub: https://github.com/jjs06/
+            <div class="profil">
+                <h2>PROFIlE</h2>
+                <div class="me"><img src="img/profil_test.png" alt=""></div>
 
+                <div class="pf-content">
+                    <div class="card">
+                        <div class="front">
+
+                            <h3>OH YUJIN</h3>
+                            <!-- <p>오유진</p> -->
+                            <ul>
+                                <li>E-mail: likebook06 @ gmail.com</li>
+                                <li>Git-hub: https://github.com/jjs06/</li>
+                            </ul>
+                            <span>hover me!</span>
+
+                        </div>
+
+                        <div class="back">
+                            <div class="licence">
+                                <h3>LICENCE</h3>
+                                <div class="lic-wrap">
+                                    <div class="lic">
+                                        <h4>취득자격</h4>
+                                        <ul class="get">
+                                            <li class="lis">
+                                                <h5>컴퓨터</h5>
+                                                <ul>
+                                                    <li>컴퓨터 활용능력 1급 (21.08)</li>
+                                                </ul>
+                                            </li>
+                                            <li class="lis">
+                                                <h5>어학</h5>
+
+                                                <ul>
+                                                    <li>상공회의소 한자 3급 (20.07)</li>
+                                                </ul>
+                                            </li>
+                                            <li class="lis">
+                                                <h5>기타</h5>
+                                                <ul>
+                                                    <li>운전면허 (2016.08)</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="lic ">
+                                        <h4>취득예정</h4>
+                                        <ul class="expected">
+                                            <li class="lis">웹 디자인 기능사 (2023년 정기 4회 필기 합격)</li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="lic">
+                                        <span>
+                                            앞으로 자기계발의 일환으로 <b>정보처리기사</b> 와 <b>토익</b> 을 준비할 예정입니다.
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="sc sc3">
+            <div class="sl">
+                <h2>SKILLS</h2>
+                <div class="sl-wrap ch">
+                    <div class="sk-list">
+                        <button class="sks">
+                            <h3 class="tc">DEVELOPMENT</h3>
+                        </button>
+                        <button class="sks">
+                            <h3>GRAPIC DESIGN</h3>
+                        </button>
+                        <button class="sks">
+                            <h3>VERSON CONTROL</h3>
+                        </button>
+                    </div>
+                    <div class="skill">
+                        <div class="sk">
+                            <h4>DEVELOPMENT</h4>
+                            <div class="sic">
+                                <img src="img/html5.svg" alt="">
+                                <img src="img/css.svg" alt="">
+                                <img src="img/scss.svg" alt="">
+                                <img src="img/js.svg" alt="">
+                                <img src="img/jquery.svg" alt="">
+                                <img src="img/ajax.svg" alt="">
+                                <img src="img/json.svg" alt="">
+                                <img src="img/react.svg" alt="">
+                                <img src="img/redux.svg" alt="">
+                                <img src="img/bootstrap.svg" alt="">
+                            </div>
+                            <p class="ex">
+                                <b>html, css, scss, js, jquery</b> 기본적인 기능과 중급 정도의 응용 기능을 능숙하게 다룰 수 있습니다.
+                                <br><br>
+                                <b>react</b> 관련 기능은 기본적인 기능과 초급 이상의 응용 기능을 능숙하게 다룰 수 있으며, <b>bootstrap</b> 과
+                                <b>swiper-slider</b> 의 cdn을 가져와 사용에 맞게 수정하여 이용 가능합니다.
+                            </p>
+                        </div>
+                        <div class="sk">
+                            <h4>GRAPIC DESIGN</h4>
+                            <div class="sic">
+                                <img src="img/ps.svg" alt="">
+                                <img src="img/ai.svg" alt="">
+                                <img src="img/figma.svg" alt="">
+                                <img src="img/ppt.svg" alt="">
+                            </div>
+                            <p class="ex">
+                                <b>포토샵, 일러스트</b> 기본적인 기능과 약간의 응용 기능을 능숙하게 다룰 수 있습니다.
+                                <br><br>
+                                <b>파워포인트</b> 기본적인 기능과 중급정도의 응용기능을 능숙하게 사용할 수 있습니다. 특히 애니매이션 기능을 잘 다룹니다.
+                                <br><br>
+                                <b>피그마, 미리캔버스</b> 기본적인 기능을 능숙히 다루며, 작업물을 다른 작업자들과 공유할 수 있습니다.
+                            </p>
+                        </div>
+                        <div class="sk">
+                            <h4>VERSON CONTROL</h4>
+                            <div class="sic">
+                                <img src="img/git.svg" alt="">
+                                <img src="img/github.svg" alt="">
+                            </div>
+                            <p class="ex">
+                                기본적인 기능을 능숙하게 사용 가능합니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sc sc4">
+            <div class="project ">
+                <h2>PORTFOLIO</h2>
+                <div class="pj ch">
+                    <div class="pj-content-wrap">
+
+                        <div class="pj-content">
+                            <div class="pi">
+                                <div class="swiper mySwiper">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <img src="img/pr4main.png" alt="">
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="img/pr4main.png" alt="">
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="img/pr4main.png" alt="">
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="img/pr4main.png" alt="">
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="img/pr4main.png" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pc">
+                                <h3>PROJECT NAME1</h3>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sc5">
+            <div class="cradit">
+
+            </div>
+        </div>
+    </div>
+
+    <div class="bottom">
+        <ul>
+            <li class="meuu_b">
+                <img src="img/icon (4).gif" alt="">
+            </li>
+            <li class="meuu_b">
+                <img src="img/icon (2).gif" alt="">
+            </li>
+            <li class="meuu_b">
+                <img src="img/icon (3).gif" alt="">
+            </li>
+            <li class="meuu_b">
+                <img src="img/icon (1).gif" alt="">
+            </li>
+            <li class="meuu_b">
+                <img src="img/icon (5).gif" alt="">
+            </li>
+        </ul>
     </div>
 </body>
 

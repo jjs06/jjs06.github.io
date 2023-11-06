@@ -1,0 +1,109 @@
+@charset "utf-8";
+
+$m_db: #561AD9;
+$m_lb: #C394F2;
+$m_dv: #8836BF;
+$m_dp: #934EA6;
+$m_ll: #F1C2F2;
+
+@mixin basic_setting {
+    width: 1500px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    cursor: url('../img/cusor.svg'), auto;
+}
+
+body {
+    font-family: 'Noto Sans KR';
+}
+
+ul,
+li,
+ol {
+    list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: 'HeirofLight';
+}
+
+h1 {
+    font-size: 180px;
+}
+
+h2 {
+    font-size: 70px;
+    margin-bottom: 60px;
+}
+
+h3 {
+    font-size: 50px;
+    margin-bottom: 45px;
+}
+
+h4 {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+h5 {
+    font-size: 20px;
+}
+
+header {
+    width: 100%;
+    height: 80px;
+    position: fixed;
+    top: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .box {
+        width: 1500px;
+
+        img {
+            width: 256px;
+        }
+    }
+
+
+}
+
+.bottom {
+    width: 100%;
+    height: 80px;
+    position: fixed;
+    bottom: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    ul {
+        width: 1500px;
+        display: flex;
+        justify-content: space-between;
+
+        li{
+            img{
+                width: 60px;
+            }
+        }
+    }
+}
