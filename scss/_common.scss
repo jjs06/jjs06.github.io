@@ -1,5 +1,14 @@
 @charset "utf-8";
 
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap');
+
+@import url('https://webfontworld.github.io/heiroflight/HeirofLight.css');
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+$title: 'Black Ops One';
+$main_text: 'Noto Sans KR';
+
 $m_db: #561AD9;
 $m_lb: #C394F2;
 $m_dv: #8836BF;
@@ -12,6 +21,33 @@ $m_ll: #F1C2F2;
     margin: 0 auto;
 }
 
+@mixin text_gradient {
+    background-image: linear-gradient(-225deg,
+            $m_db 0%,
+            $m_lb 25%,
+            $m_dv 50%,
+            $m_dp 75%,
+            $m_ll 100%);
+    background-clip: border-box;
+
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@mixin gradient_line {
+    background: {
+        image: linear-gradient(#fff, #FFF), linear-gradient(-225deg,
+                $m_db 0%,
+                $m_lb 25%,
+                $m_dv 50%,
+                $m_dp 75%,
+                $m_ll 100%);
+        origin: border-box;
+        clip: content-box, border-box;
+    }
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -20,11 +56,48 @@ $m_ll: #F1C2F2;
 
 html,
 body {
-    cursor: url('../img/cusor.svg'), auto;
+    cursor: url('../img/cusor2.svg'), auto;
 }
 
 body {
-    font-family: 'Noto Sans KR';
+    font-family: $main_text;
+
+    /* ----- Overlay ----- */
+    .overlay {
+        background-color: #fff;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        bottom: 0;
+    }
+
+    .grid {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: 10px;
+        perspective: 55.6vh;
+    }
+
+    .grid-fade {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: 11;
+        background: radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0) 0%, #fff 95%);
+    }
+
+    .grid-lines {
+        width: 100%;
+        height: 200%;
+        background-image: linear-gradient(to right, rgba(136, 54, 191, 0.3) 1px, transparent 0), linear-gradient(to bottom, rgba(136, 54, 191, 0.3) 1px, transparent 0);
+        background-size: 90px 60px;
+        background-repeat: repeat;
+        transform-origin: 100% 0 0;
+        animation: play 60s linear infinite;
+    }
+
+
 }
 
 ul,
@@ -38,7 +111,7 @@ h2,
 h3,
 h4,
 h5 {
-    font-family: 'HeirofLight';
+    font-family: $title, $main_text;
 }
 
 h1 {
@@ -46,13 +119,13 @@ h1 {
 }
 
 h2 {
-    font-size: 70px;
-    margin-bottom: 60px;
+    font-size: 60px;
+    margin-bottom: 50px;
 }
 
 h3 {
-    font-size: 50px;
-    margin-bottom: 45px;
+    font-size: 45px;
+    margin-bottom: 30px;
 }
 
 h4 {
@@ -61,14 +134,33 @@ h4 {
 }
 
 h5 {
-    font-size: 20px;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+b {
+    font-size: 18px;
+
+    color: $m_db;
+}
+
+button {
+    font-family: $title;
+    font-weight: bold;
+    font-size: 24px;
+
+    &:hover {
+        cursor: url('../img/cusor_pointer2.svg'), auto;
+    }
 }
 
 header {
     width: 100%;
-    height: 80px;
+    height: 45px;
     position: fixed;
     top: 0;
+    z-index: 20;
+    // background-color: #000;
 
     display: flex;
     align-items: center;
@@ -76,9 +168,11 @@ header {
 
     .box {
         width: 1500px;
+        display: flex;
+        align-items: center;
 
         img {
-            width: 256px;
+            width: 128px;
         }
     }
 
@@ -90,6 +184,7 @@ header {
     height: 80px;
     position: fixed;
     bottom: 0;
+    z-index: 20;
 
     display: flex;
     align-items: center;
@@ -100,9 +195,15 @@ header {
         display: flex;
         justify-content: space-between;
 
-        li{
-            img{
-                width: 60px;
+        li {
+            width: 50px;
+
+            &:hover {
+                cursor: url('../img/cusor_pointer2.svg'), auto;
+            }
+
+            img {
+                width: 100%;
             }
         }
     }

@@ -1,54 +1,36 @@
 @charset "utf-8";
 
-@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap');
-
-@import url('https://webfontworld.github.io/heiroflight/HeirofLight.css');
-
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&display=swap');
-
 @import "common";
+@import "ani";
 
 #app {
     text-align: center;
     font-size: 150px;
-    font-family: 'Black Ops One';
+    font-family: $title;
     filter: drop-shadow(5px 5px 5px rgba(136, 54, 192, 0.5));
-    background-image: linear-gradient(-225deg,
-            $m_db 0%,
-            $m_lb 25%,
-            $m_dv 50%,
-            $m_dp 75%,
-            $m_ll 100%);
-    background-clip: border-box;
-
-    background-clip: text;
-    -webkit-background-clip: text;
-    // text-fill-color: transparent;
-    -webkit-text-fill-color: transparent;
     animation: textclip 3s linear infinite;
-}
 
-@keyframes textclip {
-    to {
-        background-position: 200% center;
-    }
+    @include text_gradient;
 }
 
 .swiper {
-    width: 80%;
+
+    width: 85%;
     height: 100%;
 }
 
 .swiper-slide {
-    width: 100%;
-    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 18px;
     position: relative;
 
-    img{
+    &:hover {
+        cursor: url('../img/cusor_pointer2.svg'), auto;
+    }
+
+    img {
         width: 100%;
         position: absolute;
         top: 0;
@@ -59,11 +41,19 @@
 .section_worap {
     width: 100%;
     height: 100vh;
+    overflow: hidden;
+    position: relative;
 
     .sc {
-        padding: 100px 0;
+        padding: 70px 0 160px 0;
         width: 100%;
         height: 100%;
+        position: absolute;
+        top: 0;
+
+        // &:not(:first-child){
+        //     display: none;
+        // }
 
         &1 {
 
@@ -74,28 +64,62 @@
                 align-items: center;
                 justify-content: center;
 
-                .n-btn {
-                    width: 100%;
-                    margin-top: 90px;
+                .spinner-box {
+                    width: 200px;
+                    height: 200px;
+                    margin-top: 30px;
                     display: flex;
-                    align-items: center;
                     justify-content: center;
+                    align-items: center;
+                    background-color: transparent;
+                }
 
-                    .ic {
-                        width: 45px;
-                        height: 45px;
-                        margin-right: 15px;
+                .leo {
+                    position: absolute;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 50%;
+                }
 
-                        img {
-                            width: 100%;
-                        }
+                .blue-orbit {
+                    width: 165px;
+                    height: 165px;
+                    border: 1px solid $m_ll;
+                    animation: spin3D 3s linear .2s infinite;
+                }
 
-                    }
+                .green-orbit {
+                    width: 120px;
+                    height: 120px;
+                    border: 1px solid $m_lb;
+                    animation: spin3D 2s linear 0s infinite;
+                }
 
-                    p {
-                        font-size: 24px;
-                        font-family: 'HeirofLight';
-                    }
+                .red-orbit {
+                    width: 90px;
+                    height: 90px;
+                    border: 1px solid $m_dp;
+                    animation: spin3D 1s linear 0s infinite;
+                }
+
+                .white-orbit {
+                    width: 60px;
+                    height: 60px;
+                    border: 2px solid $m_dv;
+                    animation: spin3D 10s linear 0s infinite;
+                }
+
+                .w1 {
+                    transform: rotate3D(1, 1, 1, 90deg);
+                }
+
+                .w2 {
+                    transform: rotate3D(1, 2, .5, 90deg);
+                }
+
+                .w3 {
+                    transform: rotate3D(.5, 1, 2, 90deg);
                 }
             }
 
@@ -123,7 +147,7 @@
                 .pf-content {
                     width: 80%;
                     height: 600px;
-                    perspective: 1200px;
+                    perspective: 2400px;
 
                     .card {
 
@@ -212,11 +236,12 @@
                                     .lic {
                                         padding: 0 2%;
 
-                                        &:first-child, &:nth-of-type(2){
+                                        &:first-child,
+                                        &:nth-of-type(2) {
                                             width: 37.5%;
                                         }
 
-                                        &:last-child{
+                                        &:last-child {
                                             width: 25%;
                                         }
 
@@ -283,44 +308,67 @@
                     // height: 80%;
                     display: flex;
 
-
                     .sk-list {
-                        width: 35%;
+                        width: 40%;
                         height: 100%;
+
                         display: flex;
-                        flex-direction: column;
                         justify-content: center;
+                        align-items: center;
 
-                        background-color: #000;
-                        border-radius: 15px;
-                        box-shadow: 5px 5px 5px #777;
+                        perspective: 2400px;
 
-                        button {
-                            padding: 15px 0;
-                            border: none;
-                            background-color: transparent;
+                        &-wrap {
+                            width: 90%;
+                            height: 90%;
 
-                            h3 {
-                                margin-bottom: 0;
-                                color: #fff;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+
+                            background-color: #000;
+                            border-radius: 15px;
+                            box-shadow: 5px 5px 5px #777;
+
+                            transform-style: preserve-3d;
+                            transform: rotateY(30deg);
+
+                            &:hover {
+                                transform: rotateY(0deg);
                             }
 
-                            .tc {
-                                background-image: linear-gradient(-225deg,
-                                        $m_db 0%,
-                                        $m_lb 25%,
-                                        $m_dv 50%,
-                                        $m_dp 75%,
-                                        $m_ll 100%);
+                            .sks {
+                                width: 100%;
+                                padding: 15px 0;
+                                border: none;
+                                background-color: transparent;
 
-                                color: transparent;
-                                background-clip: text;
+
+                                &:not(:last-child) {
+                                    margin-bottom: 30px;
+                                }
+
+                                h3 {
+                                    margin-bottom: 0;
+                                    color: #fff;
+                                    text-align: center;
+
+                                    &:hover {
+                                        cursor: url('../img/cusor_pointer2.svg'), auto;
+                                    }
+                                }
+
+                                .tc {
+                                    @include text_gradient;
+                                }
                             }
                         }
+
+
                     }
 
                     .skill {
-                        width: 65%;
+                        width: 60%;
                         height: 100%;
                         position: relative;
 
@@ -351,15 +399,6 @@
                                     width: 65px;
                                 }
                             }
-
-                            .ex {
-
-                                b {
-                                    font-size: 18px;
-
-                                    color: $m_db;
-                                }
-                            }
                         }
                     }
                 }
@@ -388,19 +427,146 @@
                             .pi {
                                 width: 50%;
                                 height: 100%;
-                                // position: relative;
-                                // display: flex;
-                                // justify-content: center;
-                                // align-items: center;
-
                             }
 
                             .pc {
                                 width: 40%;
                                 height: 100%;
-                                padding: 0 3%;
+                                overflow: hidden;
+
+                                .pj-wrap {
+                                    width: 500%;
+                                    height: 100%;
+                                    display: flex;
+
+                                    .epj {
+                                        width: 100%;
+                                        height: 100%;
+                                        padding: 0 2.5%;
+
+                                        .exp {
+                                            width: 100%;
+                                            height: 300px;
+                                            overflow-y: scroll;
+
+                                            padding-right: 15px;
+
+                                            &::-webkit-scrollbar{
+                                                width: 10px;
+                                            }
+
+                                            &::-webkit-scrollbar-thumb{
+                                                background-color: $m_dv;
+                                                border-radius: 10px;
+                                            }
+
+                                            .language,
+                                            .people,
+                                            .color {
+                                                margin-bottom: 30px;
+                                            }
+
+                                            .language {
+                                                width: 100%;
+                                                display: flex;
+                                                align-items: center;
+
+                                                .l {
+                                                    border: 1px solid transparent;
+                                                    border-radius: 15px;
+
+                                                    @include gradient_line;
+
+
+
+                                                    &:not(:last-child) {
+                                                        margin-right: 15px;
+                                                    }
+
+
+                                                    p {
+                                                        padding: 6px 12px;
+                                                        font-weight: bold;
+
+                                                        @include text_gradient;
+                                                    }
+                                                }
+                                            }
+
+                                            .color {
+                                                width: 100%;
+
+                                                .c-wrap {
+                                                    width: 100%;
+                                                    display: flex;
+
+                                                    .c {
+                                                        width: 100px;
+                                                        display: flex;
+                                                        flex-direction: column;
+                                                        align-items: center;
+
+                                                        .c-box {
+                                                            width: 50px;
+                                                            height: 50px;
+                                                            border-radius: 50%;
+                                                            border: 1px solid #000;
+                                                        }
+
+                                                        span {
+                                                            font-weight: bold;
+                                                        }
+                                                    }
+                                                }
+
+                                                p {
+                                                    margin-top: 15px;
+                                                }
+                                            }
+                                        }
+
+                                        .page{
+                                            margin-top: 45px;
+                                            display: flex;
+                                            justify-content: space-around;
+
+
+                                            button{
+                                                width: 120px;
+                                                height: 60px;
+                                            }
+                                        }
+                                    }
+                                }
+
                             }
                         }
+                    }
+                }
+            }
+        }
+
+        &5 {
+            .cradit {
+                @include basic_setting;
+
+                .btns {
+                    width: 100%;
+                    height: 60px;
+                    background-color: #000;
+
+                }
+
+                .ending-wrap {
+                    width: 100%;
+                    overflow: hidden;
+                    position: relative;
+
+                    .my-story {
+                        width: 100%;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
                     }
                 }
             }

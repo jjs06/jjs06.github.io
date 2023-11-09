@@ -1,0 +1,27 @@
+@charset "utf-8";
+
+@keyframes textclip {
+    to {
+        background-position: 200% center;
+    }
+}
+
+@keyframes spin3D {
+    from {
+        transform: rotate3d(.5, .5, .5, 360deg);
+    }
+
+    to {
+        transform: rotate3d(0deg);
+    }
+}
+
+@keyframes play {
+    0% {
+        transform: rotateX(45deg) translateY(-50%);
+    }
+
+    100% {
+        transform: rotateX(45deg) translateY(0);
+    }
+}

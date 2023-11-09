@@ -33,13 +33,23 @@
                 .start();
 
 
-            var swiper = new Swiper(".mySwiper", {
-                effect: "cards",
-                grabCursor: true,
-            });
+
         }
 
         $(function () {
+
+            var swiper = new Swiper(".mySwiper", {
+                effect: "cards",
+                grabCursor: true,
+                on: {
+                    slideChange: function () {
+
+                        let w = parseInt($('.pc').innerWidth());
+                        $('.pj-wrap').stop().animate({ 'margin-left': -w * swiper.activeIndex }, 1000);
+
+                    }
+                }
+            });
 
             $('.p-btn').click(function () {
                 $(this).css('z-index', 5);
@@ -51,7 +61,7 @@
                 $('.pj-content').eq(i).siblings().hide();
             });
 
-            for (i in $('.swiper-slide')) {
+            for (let i in $('.swiper-slide')) {
                 $('.swiper-slide').eq(i).click(function () {
                     let h = $(this).children('img').innerHeight();
                     let v = $(this).innerHeight();
@@ -75,13 +85,50 @@
                 $('.sk').eq(i).siblings().hide();
             });
 
-            let th = $('h2').outerHeight(true);
-            console.log(th);
+            let th = $('.sc3 h2').outerHeight(true);
             $('.ch').css('height', `calc(100% - ${th}px)`);
 
-            // for(i in $('.meuu_b')){
 
-            // }
+            let height = $('.my-story').innerHeight();
+            let c = $('.ending-wrap').innerHeight();
+
+            $('.ending-wrap').mouseover(function () {
+                $('.my-story').stop().animate({
+                    top: -(height - c)
+                }, 20000);
+            });
+
+            $('.ending-wrap').mouseout(function () {
+                $('.my-story').stop().animate({
+                    top: 0
+                }, 1000);
+            });
+
+            $('.sc').not(':first').hide();
+
+            let menu = $('.bottom>ul>li')
+
+            for (let idx in menu) {
+                menu.eq(idx).children('img').click(function () {
+                    $('.sc').eq(idx).fadeIn(2000)
+                    $('.sc').eq(idx).siblings().fadeOut(1000)
+                });
+            }
+
+            let colors = [
+                ['#787d62','#f8f9fa', '#0d0d0d',],
+                ['#ffeb60','#a451f7','#ffffff','#242424'],
+                ['#7E49F2 ','#ffffff','#000000',],
+                ['#000000','#ffffff','#500000','#fffadb'],
+                ['#a2c012','#ffffff','#222222',"#444444"]
+            ]
+
+            for(let i in $('.epj')){
+
+                for(let j in $('.c')){
+                   $('.epj').eq(i).find('.c').eq(j).find('.c-box').css('background-color', colors[i][j])
+                }
+            }
 
         });
     </script>
@@ -89,6 +136,13 @@
 </head>
 
 <body>
+    <div class="overlay">
+        <div class="grid">
+            <div class="grid-fade"></div>
+            <div class="grid-lines"></div>
+        </div>
+    </div>
+
     <header>
         <div class="box">
             <img src="img/sign.svg" alt="">
@@ -101,12 +155,30 @@
                 <div id="app"></div>
                 <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
 
-                <div class="n-btn">
+                <div class="spinner-box">
+                    <div class="blue-orbit leo">
+                    </div>
+
+                    <div class="green-orbit leo">
+                    </div>
+
+                    <div class="red-orbit leo">
+                    </div>
+
+                    <div class="white-orbit w1 leo">
+                    </div>
+                    <div class="white-orbit w2 leo">
+                    </div>
+                    <div class="white-orbit w3 leo">
+                    </div>
+                </div>
+
+                <!-- <div class="n-btn">
                     <div class="ic">
                         <img src="img/mouse.svg" alt="">
                     </div>
                     <p>start</p>
-                </div>
+                </div> -->
             </div>
         </div>
         <div class="sc sc2">
@@ -182,15 +254,17 @@
                 <h2>SKILLS</h2>
                 <div class="sl-wrap ch">
                     <div class="sk-list">
-                        <button class="sks">
-                            <h3 class="tc">DEVELOPMENT</h3>
-                        </button>
-                        <button class="sks">
-                            <h3>GRAPIC DESIGN</h3>
-                        </button>
-                        <button class="sks">
-                            <h3>VERSON CONTROL</h3>
-                        </button>
+                        <div class="sk-list-wrap">
+                            <button class="sks">
+                                <h3 class="tc">DEVELOPMENT</h3>
+                            </button>
+                            <button class="sks">
+                                <h3>GRAPIC DESIGN</h3>
+                            </button>
+                            <button class="sks">
+                                <h3>VERSON CONTROL</h3>
+                            </button>
+                        </div>
                     </div>
                     <div class="skill">
                         <div class="sk">
@@ -261,10 +335,10 @@
                                             <img src="img/pr4main.png" alt="">
                                         </div>
                                         <div class="swiper-slide">
-                                            <img src="img/pr4main.png" alt="">
+                                            <img src="img/pr3main.png" alt="">
                                         </div>
                                         <div class="swiper-slide">
-                                            <img src="img/pr4main.png" alt="">
+                                            <img src="img/pr2main.png" alt="">
                                         </div>
                                         <div class="swiper-slide">
                                             <img src="img/pr4main.png" alt="">
@@ -273,7 +347,327 @@
                                 </div>
                             </div>
                             <div class="pc">
-                                <h3>PROJECT NAME1</h3>
+                                <div class="pj-wrap">
+                                    <div class="epj">
+                                        <h3>REACT FURNITURE SHOPPING MALL</h3>
+                                        <div class="exp">
+                                            <div class="language">
+                                                <div class="l">
+                                                    <p>REACT</p>
+                                                </div>
+                                                <div class="l">
+                                                    <p>REDUCS</p>
+                                                </div>
+                                                <div class="l">
+                                                    <p>AXIOS</p>
+                                                </div>
+                                                <div class="l">
+                                                    <p>JSON</p>
+                                                </div>
+                                                <div class="l">
+                                                    <p>SCSS</p>
+                                                </div>
+                                            </div>
+                                            <div class="people">
+                                                <h5>WORKER</h5>
+                                                <p>1명, 개인작업</p>
+                                            </div>
+                                            <div class="color">
+                                                <h5>COLORS</h5>
+                                                <div class="c-wrap">
+                                                    <div class="c">
+                                                        <div class="c-box"></div>
+                                                        <span>#787d62</span>
+                                                    </div>
+                                                    <div class="c">
+                                                        <div class="c-box"></div>
+                                                        <span>#f8f9fa</span>
+                                                    </div>
+                                                    <div class="c">
+                                                        <div class="c-box"></div>
+                                                        <span>#0d0d0d</span>
+                                                    </div>
+                                                </div>
+                                                <p>
+                                                    차분하면서 주로 목재로 이루어진 가구와 잘 어울리는 <b>#787d62</b> 를 메인으로,
+                                                    배경색과 폰트색은 각각 심플하고 깔끔한 무채색 계열인 <b>#f8f9fa</b>와 <b>#0d0d0d</b>을 사용하였습니다.
+                                                </p>
+                                            </div>
+
+                                            <div class="plain">
+                                                <h5>ABOUT</h5>
+
+                                                <p>
+                                                    온라인 가구 쇼핑몰을 주제로 <b>REACT</b>를 이용하여 작업하였습니다.
+                                                    <br>
+                                                    주로 <b>REACT BOOTSTRAP</b> 과 <b>SWIPER SLIDER</b> cdn을 이용해 구조를 잡았습니다.
+                                                    <br>
+                                                    상품정보는 json 파일을 서버에 올려 <b>AXIOS</b>를 이용해 가져왔으며, <b>REDUX</b>를 이용해 상품을 장바구니로 가져왔습니다.
+                                                    <br>
+                                                    상세페이지는 <b>REACT ROUTER</b>로 각각의 페이지를 만들었습니다.
+                                                    <br>
+                                                    이번 작업은 <b>REACT</b>와 <b> REACRT BOOTSTRAP</b>의 특징을 이해하고 최대한 활용하려고 노력하였습니다.
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="page">
+                                            <button>Main</button>
+                                            <button>Sub</button>
+                                        </div>
+                                    </div>
+                                    <div class="epj">
+                                        <h3>BOOK STORE MILLIE</h3>
+                                        <div class="exp">
+                                            <div class="language">
+                                                <div class="l">
+                                                    <p>HTML</p>
+                                                </div>
+                                                <div class="l">
+                                                    <p>JQUERY</p>
+                                                </div>
+                                                <div class="l">
+                                                    <p>API</p>
+                                                </div>
+                                                <div class="l">
+                                                    <p>AXIOS</p>
+                                                </div>
+                                                <div class="l">
+                                                    <p>SCSS</p>
+                                                </div>
+                                            </div>
+                                            <div class="people">
+                                                <h5>WORKER</h5>
+                                                <p>1명, 개인작업</p>
+                                            </div>
+                                            <div class="color">
+                                                <h5>COLORS</h5>
+                                                <div class="c-wrap">
+                                                    <div class="c">
+                                                        <div class="c-box"></div>
+                                                        <span>#ffeb60</span>
+                                                    </div>
+                                                    <div class="c">
+                                                        <div class="c-box"></div>
+                                                        <span>#a451f7</span>
+                                                    </div>
+                                                    <div class="c">
+                                                        <div class="c-box"></div>
+                                                        <span>#ffffff</span>
+                                                    </div>
+                                                    <div class="c">
+                                                        <div class="c-box"></div>
+                                                        <span>#242424</span>
+                                                    </div>
+                                                </div>
+                                                <p>
+                                                    밀리의 브랜드 컬러인 <b>#ffeb60</b> 를 메인으로, <b>#a451f7</b>를 약간의 포인트로 주었습니다.
+                                                    배경색과 폰트색은 각각 심플하고 깔끔한 무채색 계열인 <b>#ffffff</b>와 <b>#242424</b>을 주로 사용하였습니다.
+                                                </p>
+                                            </div>
+
+                                            <div class="plain">
+                                                <h5>ABOUT</h5>
+
+                                                <p>
+                                                    온라인 서점을 주제로 <b>HTML, SCSS</b>를 이용하여 작업하였습니다.
+                                                    <br>
+                                                    효과는 <b>JQUERY</b>로 주었고, 도서정보는 <b>카카오 OPEN API</b>를 통해 가져왔습니다.
+                                                    <br>
+                                                    유튜브 영상의 경우 <b>유튜브 OPEN API</b>를 통해 영상을 가져와 재생효과를 주었습니다.
+                                                    <br>
+                                                    이번 작업은 밀리페이지와 최대한 비슷한 디자인과 효과들을 구현하려고 노력하였습니다.
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="page">
+                                            <button>Main</button>
+                                            <button>Sub</button>
+                                        </div>
+                                    </div>
+                                    <div class="epj">
+                                        <h3>TEAM PROJECT ART GALLERY</h3>
+                                        <div class="exp">
+                                            <div class="language">
+                                                <div class="l">
+                                                    <p>HTML</p>
+                                                </div>
+                                                <div class="l">
+                                                    <p>JQUERY</p>
+                                                </div>
+                                                <div class="l">
+                                                    <p>CSS</p>
+                                                </div>
+                                            </div>
+                                            <div class="people">
+                                                <h5>WORKER</h5>
+                                                <p>4명, 팀작업</p>
+                                            </div>
+                                            <div class="color">
+                                                <h5>COLORS</h5>
+                                                <div class="c-wrap">
+                                                    <div class="c">
+                                                        <div class="c-box"></div>
+                                                        <span>#7E49F2 </span>
+                                                    </div>
+                                                    <div class="c">
+                                                        <div class="c-box"></div>
+                                                        <span>#ffffff</span>
+                                                    </div>
+                                                    <div class="c">
+                                                        <div class="c-box"></div>
+                                                        <span>#000000</span>
+                                                    </div>
+                                                </div>
+                                                <p>
+                                                    <b>#7E49F2 </b> 를 포인트로 하였으며,
+                                                    배경색과 폰트색은 각각 기본적인 무채색 <b>#ffffff</b>와 <b>#000000</b>을 사용하였습니다.
+                                                </p>
+                                            </div>
+
+                                            <div class="plain">
+                                                <h5>ABOUT</h5>
+
+                                                <p>
+                                                    미술관 홈페이지를 주제로 <b>HTML, CSS</b>를 이용하여 작업하였습니다.
+                                                    <br>
+                                                    <b>메인페이지의 헤더, 메뉴, 슬라이더 부분</b>과  <b>교육체험 서브페이지</b>를 담당하였습니다.
+                                                    <br>
+                                                    효과는 <b>JQUERY</b>와 <b>CSS ANIMATION</b>으로 주었습니다.
+                                                    <br>
+                                                    이번 작업은 팀 프로젝트이니 만큼 다른 팀원들과의 협업과, 다른 팀원들이 작업물 사이의 조화를 염두에 두고 작업하였습니다.
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="page">
+                                            <button>Main</button>
+                                            <button>Sub</button>
+                                        </div>
+                                    </div>
+                                    <div class="epj">
+                                        <h3>RESPONSIVE TRAVLE LONDON</h3>
+                                        <div class="exp">
+                                            <div class="language">
+                                                <div class="l">
+                                                    <p>HTML</p>
+                                                </div>
+                                                <div class="l">
+                                                    <p>JS</p>
+                                                </div>
+                                                <div class="l">
+                                                    <p>CSS</p>
+                                                </div>
+                                            </div>
+                                            <div class="people">
+                                                <h5>WORKER</h5>
+                                                <p>1명, 개인작업</p>
+                                            </div>
+                                            <div class="color">
+                                                <h5>COLORS</h5>
+                                                <div class="c-wrap">
+                                                    <div class="c">
+                                                        <div class="c-box"></div>
+                                                        <span>#000000</span>
+                                                    </div>
+                                                    <div class="c">
+                                                        <div class="c-box"></div>
+                                                        <span>#ffffff</span>
+                                                    </div>
+                                                    <div class="c">
+                                                        <div class="c-box"></div>
+                                                        <span>#500000</span>
+                                                    </div>
+                                                    <div class="c">
+                                                        <div class="c-box"></div>
+                                                        <span>#fffadb</span>
+                                                    </div>
+                                                </div>
+                                                <p>
+                                                    BLACK & WHITE 컨셉으로 <b>#000000</b> 과 <b>#ffffff</b>를 메인으로 사용하였으며, <b>#500000</b>와 <b>#fffadb</b>를 약간의 포인트로 주었습니다.
+                                                </p>
+                                            </div>
+
+                                            <div class="plain">
+                                                <h5>ABOUT</h5>
+                                                <p>
+                                                    런던 여행을 주제로 <b>HTML,CSS</b>를 이용하여 반응형으로 작업하였습니다.
+                                                    <br>
+                                                    블로그 형식으로 제작하였으며, <b>순수 js만</b>을 이용해 효과를 주었습니다.
+                                                    <br>
+                                                    다크모드와 화이트 모드를 통해 밤과 낮의 콘텐츠와 분위기를 다르게 만들어 보았습니다.
+                                                    <br>
+                                                    이번 작업에서는 다양한 기종에서 보기에 최적화되도록 하는데 공을 들였으며, <b>VANILA JS</b> 를 익히는 연습을 하였습니다.
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="page">
+                                            <button>Main</button>
+                                            <button>Sub</button>
+                                        </div>
+                                    </div>
+                                    <div class="epj">
+                                        <h3>FRASH LUNCHBOX SHOPPING MALL</h3>
+                                        <div class="exp">
+                                            <div class="language">
+                                                <div class="l">
+                                                    <p>HTML</p>
+                                                </div>
+                                                <div class="l">
+                                                    <p>CSS</p>
+                                                </div>
+                                            </div>
+                                            <div class="people">
+                                                <h5>WORKER</h5>
+                                                <p>1명, 개인작업</p>
+                                            </div>
+                                            <div class="color">
+                                                <h5>COLORS</h5>
+                                                <div class="c-wrap">
+                                                    <div class="c">
+                                                        <div class="c-box"></div>
+                                                        <span>#a2c012</span>
+                                                    </div>
+                                                    <div class="c">
+                                                        <div class="c-box"></div>
+                                                        <span>#ffffff</span>
+                                                    </div>
+                                                    <div class="c">
+                                                        <div class="c-box"></div>
+                                                        <span>#222222</span>
+                                                    </div>
+                                                    <div class="c">
+                                                        <div class="c-box"></div>
+                                                        <span>#444444</span>
+                                                    </div>
+                                                </div>
+                                                <p>
+                                                    신선한 느낌을 주면서도 밝은 <b>#a2c012</b> 를 메인으로 사용하였습니다.
+                                                    배경색은 기본인 <b>#ffffff</b>를 사용하였으며, 제목폰트는 <b>#222222</b>, 본문폰트는 <b>#444444</b>를 사용하였습니다.
+                                                </p>
+                                            </div>
+
+                                            <div class="plain">
+                                                <h5>ABOUT</h5>
+
+                                                <p>
+                                                    첫번째 프로젝트로, 다이어트 도시락 쇼핑몰을 주제로 하여 <b>HTML, CSS</b>만을 사용하여 만들었습니다.
+                                                    <br>
+                                                    기초적인 <b>CSS</b>와 <b>HOVER</b>효과로 표현하였습니다.
+                                                    <br>
+                                                    이번 작업은 처음이니 만큼, <b>HTML</b>과 <b>CSS</b>의 기본을 충실히 익히고자 하였습니다.
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="page">
+                                            <button>Main</button>
+                                            <button>Sub</button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -281,9 +675,14 @@
                 </div>
             </div>
         </div>
-        <div class="sc5">
+        <div class="sc sc5">
             <div class="cradit">
+                <h2>title</h2>
+                <div class="ending-wrap ch">
+                    <div class="my-story">
 
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -291,19 +690,19 @@
     <div class="bottom">
         <ul>
             <li class="meuu_b">
-                <img src="img/icon (4).gif" alt="">
+                <img src="img/icon1.svg" alt="">
             </li>
             <li class="meuu_b">
-                <img src="img/icon (2).gif" alt="">
+                <img src="img/icon2.svg" alt="">
             </li>
             <li class="meuu_b">
-                <img src="img/icon (3).gif" alt="">
+                <img src="img/icon3.svg" alt="">
             </li>
             <li class="meuu_b">
-                <img src="img/icon (1).gif" alt="">
+                <img src="img/icon4.svg" alt="">
             </li>
             <li class="meuu_b">
-                <img src="img/icon (5).gif" alt="">
+                <img src="img/icon5.svg" alt="">
             </li>
         </ul>
     </div>
