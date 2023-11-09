@@ -99,6 +99,13 @@ button:hover {
   cursor: url("../img/cusor_pointer2.svg"), auto;
 }
 
+.tc {
+  background-image: linear-gradient(-225deg, #561AD9 0%, #C394F2 25%, #8836BF 50%, #934EA6 75%, #F1C2F2 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 header {
   width: 100%;
   height: 45px;
@@ -130,8 +137,10 @@ header .box img {
 }
 .bottom ul {
   width: 1500px;
+  height: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .bottom ul li {
   width: 50px;
@@ -171,15 +180,14 @@ header .box img {
   filter: drop-shadow(5px 5px 5px rgba(136, 54, 192, 0.5));
   animation: textclip 3s linear infinite;
   background-image: linear-gradient(-225deg, #561AD9 0%, #C394F2 25%, #8836BF 50%, #934EA6 75%, #F1C2F2 100%);
-  background-clip: border-box;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .swiper {
-  width: 85%;
-  height: 100%;
+  width: 80%;
+  height: 85%;
 }
 
 .swiper-slide {
@@ -206,7 +214,7 @@ header .box img {
   position: relative;
 }
 .section_worap .sc {
-  padding: 70px 0 160px 0;
+  padding: 80px 0 120px 0;
   width: 100%;
   height: 100%;
   position: absolute;
@@ -222,8 +230,8 @@ header .box img {
   justify-content: center;
 }
 .section_worap .sc1 .m-title .spinner-box {
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
   margin-top: 30px;
   display: flex;
   justify-content: center;
@@ -238,26 +246,26 @@ header .box img {
   border-radius: 50%;
 }
 .section_worap .sc1 .m-title .blue-orbit {
-  width: 165px;
-  height: 165px;
+  width: 247.5px;
+  height: 247.5px;
   border: 1px solid #F1C2F2;
   animation: spin3D 3s linear 0.2s infinite;
 }
 .section_worap .sc1 .m-title .green-orbit {
-  width: 120px;
-  height: 120px;
+  width: 180px;
+  height: 180px;
   border: 1px solid #C394F2;
   animation: spin3D 2s linear 0s infinite;
 }
 .section_worap .sc1 .m-title .red-orbit {
-  width: 90px;
-  height: 90px;
+  width: 135px;
+  height: 135px;
   border: 1px solid #934EA6;
   animation: spin3D 1s linear 0s infinite;
 }
 .section_worap .sc1 .m-title .white-orbit {
-  width: 60px;
-  height: 60px;
+  width: 90px;
+  height: 90px;
   border: 2px solid #8836BF;
   animation: spin3D 10s linear 0s infinite;
 }
@@ -362,9 +370,6 @@ header .box img {
 .section_worap .sc2 .profil .pf-content .card .back .licence .lic-wrap .lic:first-child, .section_worap .sc2 .profil .pf-content .card .back .licence .lic-wrap .lic:nth-of-type(2) {
   width: 37.5%;
 }
-.section_worap .sc2 .profil .pf-content .card .back .licence .lic-wrap .lic:last-child {
-  width: 25%;
-}
 .section_worap .sc2 .profil .pf-content .card .back .licence .lic-wrap .lic .get {
   width: 100%;
 }
@@ -385,13 +390,14 @@ header .box img {
   padding: 1% 0;
 }
 .section_worap .sc2 .profil .pf-content .card .back .licence .lic-wrap .lic:last-child {
+  width: 25%;
   border: 2px solid #fff;
   border-radius: 10px;
   display: flex;
   align-items: center;
 }
 .section_worap .sc2 .profil .pf-content .card .back .licence .lic-wrap .lic:last-child b {
-  font-size: 18px;
+  text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
 }
 .section_worap .sc2 .profil .pf-content:hover .card {
   transform: rotateY(180deg);
@@ -445,13 +451,6 @@ header .box img {
 .section_worap .sc3 .sl .sl-wrap .sk-list-wrap .sks h3:hover {
   cursor: url("../img/cusor_pointer2.svg"), auto;
 }
-.section_worap .sc3 .sl .sl-wrap .sk-list-wrap .sks .tc {
-  background-image: linear-gradient(-225deg, #561AD9 0%, #C394F2 25%, #8836BF 50%, #934EA6 75%, #F1C2F2 100%);
-  background-clip: border-box;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
 .section_worap .sc3 .sl .sl-wrap .skill {
   width: 60%;
   height: 100%;
@@ -467,6 +466,8 @@ header .box img {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  border: 1px solid #8836BF;
+  background-color: #fff;
 }
 .section_worap .sc3 .sl .sl-wrap .skill .sk:not(:first-child) {
   display: none;
@@ -491,7 +492,7 @@ header .box img {
 }
 .section_worap .sc4 .project .pj .pj-content-wrap {
   width: 100%;
-  height: calc(100% - 40px);
+  height: 100%;
 }
 .section_worap .sc4 .project .pj .pj-content-wrap .pj-content {
   width: 100%;
@@ -502,6 +503,9 @@ header .box img {
 .section_worap .sc4 .project .pj .pj-content-wrap .pj-content .pi {
   width: 50%;
   height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .section_worap .sc4 .project .pj .pj-content-wrap .pj-content .pc {
   width: 40%;
@@ -514,9 +518,11 @@ header .box img {
   display: flex;
 }
 .section_worap .sc4 .project .pj .pj-content-wrap .pj-content .pc .pj-wrap .epj {
-  width: 100%;
+  width: 20%;
   height: 100%;
-  padding: 0 2.5%;
+  padding: 15px 1.5%;
+  border: 1px solid #8836BF;
+  background-color: #fff;
 }
 .section_worap .sc4 .project .pj .pj-content-wrap .pj-content .pc .pj-wrap .epj .exp {
   width: 100%;
@@ -555,7 +561,6 @@ header .box img {
   padding: 6px 12px;
   font-weight: bold;
   background-image: linear-gradient(-225deg, #561AD9 0%, #C394F2 25%, #8836BF 50%, #934EA6 75%, #F1C2F2 100%);
-  background-clip: border-box;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -593,6 +598,15 @@ header .box img {
 .section_worap .sc4 .project .pj .pj-content-wrap .pj-content .pc .pj-wrap .epj .page button {
   width: 120px;
   height: 60px;
+  background-color: transparent;
+  box-shadow: 2px 2px 2px #000, -2px -2px 6px inset;
+}
+.section_worap .sc4 .project .pj .pj-content-wrap .pj-content .pc .pj-wrap .epj .page button:hover, .section_worap .sc4 .project .pj .pj-content-wrap .pj-content .pc .pj-wrap .epj .page button:active {
+  box-shadow: -2px -2px 2px #000, 2px 2px 6px inset;
+  background-image: linear-gradient(-225deg, #561AD9 0%, #C394F2 25%, #8836BF 50%, #934EA6 75%, #F1C2F2 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .section_worap .sc5 .cradit {
   width: 1500px;
@@ -614,4 +628,12 @@ header .box img {
   position: absolute;
   top: 0;
   left: 0;
+}
+.section_worap .sc5 .cradit .ending-wrap .my-story .st {
+  width: 100%;
+}
+.section_worap .sc5 .cradit .ending-wrap .my-story .st img {
+  width: 200px;
+  height: 400px;
+  background-color: #F1C2F2;
 }
