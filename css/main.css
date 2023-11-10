@@ -290,6 +290,7 @@ header .box img {
 }
 .section_worap .sc2 .profil .me {
   width: 20%;
+  opacity: 0;
 }
 .section_worap .sc2 .profil .me img {
   width: 100%;
@@ -305,6 +306,7 @@ header .box img {
   position: relative;
   transition: 0.4s;
   transform-style: preserve-3d;
+  opacity: 0;
 }
 .section_worap .sc2 .profil .pf-content .card .front,
 .section_worap .sc2 .profil .pf-content .card .back {
@@ -455,6 +457,7 @@ header .box img {
   width: 60%;
   height: 100%;
   position: relative;
+  opacity: 0;
 }
 .section_worap .sc3 .sl .sl-wrap .skill .sk {
   width: 85%;

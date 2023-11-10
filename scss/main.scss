@@ -138,6 +138,7 @@
 
                 .me {
                     width: 20%;
+                    opacity: 0;
 
                     img {
                         width: 100%;
@@ -155,7 +156,9 @@
                         height: 100%;
                         position: relative;
                         transition: .4s;
-                        transform-style: preserve-3d;
+                        transform-style: preserve-3d;                        
+                        // display: none;
+                        opacity: 0;
 
                         .front,
                         .back {
@@ -366,6 +369,7 @@
                         width: 60%;
                         height: 100%;
                         position: relative;
+                        opacity: 0;
 
                         .sk {
                             width: 85%;
@@ -374,6 +378,7 @@
                             display: flex;
                             flex-direction: column;
                             position: absolute;
+
                             top: 50%;
                             left: 50%;
                             transform: translate(-50%, -50%);

@@ -110,27 +110,51 @@
 
             for (let idx in menu) {
                 menu.eq(idx).children('img').click(function () {
-                    $('.sc').eq(idx).fadeIn(2000)
-                    $('.sc').eq(idx).siblings().fadeOut(1000)
+                    $('.sc').eq(idx).show()
+                    $('.sc').eq(idx).siblings().hide()           
 
-                    if($('.sc').eq(0).css('display')=='block'){
+                    
 
+                    if ($('.sc').eq(1).css('display') != 'none') {      
+                        // setTimeout(sc2,1000);
+                        $('.me').stop().animate({ opacity: 1 }, function () {
+                            $('.card').animate({ opacity: 1 }, function () {
+                                setTimeout(() => {
+                                    $(this).css({
+                                        transform: 'rotateY(360deg)'
+                                    })
+                                }, 500);
+                            })
+                        })
+                    }
+                    else {                       
+                        $('.me').css('opacity', 0);
+                        $('.card').css({ opacity: 0, transform: 'rotateY(0)' });
+                    }
+
+                    if ($('.sc').eq(2).css('display') != 'none') {              
+                        $('.skill').animate({
+                            opacity: 1
+                        }, 2000)
+                    }
+                    else {
+                        $('.skill').css('opacity', 0)
                     }
                 });
             }
 
             let colors = [
-                ['#787d62','#f8f9fa', '#0d0d0d',],
-                ['#ffeb60','#a451f7','#ffffff','#242424'],
-                ['#7E49F2 ','#ffffff','#000000',],
-                ['#000000','#ffffff','#500000','#fffadb'],
-                ['#a2c012','#ffffff','#222222',"#444444"]
+                ['#787d62', '#f8f9fa', '#0d0d0d',],
+                ['#ffeb60', '#a451f7', '#ffffff', '#242424'],
+                ['#7E49F2 ', '#ffffff', '#000000',],
+                ['#000000', '#ffffff', '#500000', '#fffadb'],
+                ['#a2c012', '#ffffff', '#222222', "#444444"]
             ]
 
-            for(let i in $('.epj')){
+            for (let i in $('.epj')) {
 
-                for(let j in $('.c')){
-                   $('.epj').eq(i).find('.c').eq(j).find('.c-box').css('background-color', colors[i][j])
+                for (let j in $('.c')) {
+                    $('.epj').eq(i).find('.c').eq(j).find('.c-box').css('background-color', colors[i][j])
                 }
             }
 
@@ -176,13 +200,6 @@
                     <div class="white-orbit w3 leo">
                     </div>
                 </div>
-
-                <!-- <div class="n-btn">
-                    <div class="ic">
-                        <img src="img/mouse.svg" alt="">
-                    </div>
-                    <p>start</p>
-                </div> -->
             </div>
         </div>
         <div class="sc sc2">
@@ -394,7 +411,8 @@
                                                 </div>
                                                 <p>
                                                     차분하면서 주로 목재로 이루어진 가구와 잘 어울리는 <b>#787d62</b> 를 메인으로,
-                                                    배경색과 폰트색은 각각 심플하고 깔끔한 무채색 계열인 <b>#f8f9fa</b>와 <b>#0d0d0d</b>을 사용하였습니다.
+                                                    배경색과 폰트색은 각각 심플하고 깔끔한 무채색 계열인 <b>#f8f9fa</b>와 <b>#0d0d0d</b>을
+                                                    사용하였습니다.
                                                 </p>
                                             </div>
 
@@ -406,7 +424,8 @@
                                                     <br>
                                                     주로 <b>REACT BOOTSTRAP</b> 과 <b>SWIPER SLIDER</b> cdn을 이용해 구조를 잡았습니다.
                                                     <br>
-                                                    상품정보는 json 파일을 서버에 올려 <b>AXIOS</b>를 이용해 가져왔으며, <b>REDUX</b>를 이용해 상품을 장바구니로 가져왔습니다.
+                                                    상품정보는 json 파일을 서버에 올려 <b>AXIOS</b>를 이용해 가져왔으며, <b>REDUX</b>를 이용해 상품을
+                                                    장바구니로 가져왔습니다.
                                                     <br>
                                                     상세페이지는 <b>REACT ROUTER</b>로 각각의 페이지를 만들었습니다.
                                                     <br>
@@ -466,7 +485,8 @@
                                                 </div>
                                                 <p>
                                                     밀리의 브랜드 컬러인 <b>#ffeb60</b> 를 메인으로, <b>#a451f7</b>를 약간의 포인트로 주었습니다.
-                                                    배경색과 폰트색은 각각 심플하고 깔끔한 무채색 계열인 <b>#ffffff</b>와 <b>#242424</b>을 주로 사용하였습니다.
+                                                    배경색과 폰트색은 각각 심플하고 깔끔한 무채색 계열인 <b>#ffffff</b>와 <b>#242424</b>을 주로
+                                                    사용하였습니다.
                                                 </p>
                                             </div>
 
@@ -536,7 +556,7 @@
                                                 <p>
                                                     미술관 홈페이지를 주제로 <b>HTML, CSS</b>를 이용하여 작업하였습니다.
                                                     <br>
-                                                    <b>메인페이지의 헤더, 메뉴, 슬라이더 부분</b>과  <b>교육체험 서브페이지</b>를 담당하였습니다.
+                                                    <b>메인페이지의 헤더, 메뉴, 슬라이더 부분</b>과 <b>교육체험 서브페이지</b>를 담당하였습니다.
                                                     <br>
                                                     효과는 <b>JQUERY</b>와 <b>CSS ANIMATION</b>으로 주었습니다.
                                                     <br>
@@ -589,7 +609,8 @@
                                                     </div>
                                                 </div>
                                                 <p>
-                                                    BLACK & WHITE 컨셉으로 <b>#000000</b> 과 <b>#ffffff</b>를 메인으로 사용하였으며, <b>#500000</b>와 <b>#fffadb</b>를 약간의 포인트로 주었습니다.
+                                                    BLACK & WHITE 컨셉으로 <b>#000000</b> 과 <b>#ffffff</b>를 메인으로 사용하였으며,
+                                                    <b>#500000</b>와 <b>#fffadb</b>를 약간의 포인트로 주었습니다.
                                                 </p>
                                             </div>
 
@@ -602,7 +623,8 @@
                                                     <br>
                                                     다크모드와 화이트 모드를 통해 밤과 낮의 콘텐츠와 분위기를 다르게 만들어 보았습니다.
                                                     <br>
-                                                    이번 작업에서는 다양한 기종에서 보기에 최적화되도록 하는데 공을 들였으며, <b>VANILA JS</b> 를 익히는 연습을 하였습니다.
+                                                    이번 작업에서는 다양한 기종에서 보기에 최적화되도록 하는데 공을 들였으며, <b>VANILA JS</b> 를 익히는 연습을
+                                                    하였습니다.
                                                 </p>
                                             </div>
                                         </div>
@@ -649,7 +671,8 @@
                                                 </div>
                                                 <p>
                                                     신선한 느낌을 주면서도 밝은 <b>#a2c012</b> 를 메인으로 사용하였습니다.
-                                                    배경색은 기본인 <b>#ffffff</b>를 사용하였으며, 제목폰트는 <b>#222222</b>, 본문폰트는 <b>#444444</b>를 사용하였습니다.
+                                                    배경색은 기본인 <b>#ffffff</b>를 사용하였으며, 제목폰트는 <b>#222222</b>, 본문폰트는
+                                                    <b>#444444</b>를 사용하였습니다.
                                                 </p>
                                             </div>
 
