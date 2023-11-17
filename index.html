@@ -36,7 +36,7 @@
 
         }
 
-        $(function () {
+        $(document).ready(function () {
 
             var swiper = new Swiper(".mySwiper", {
                 effect: "cards",
@@ -66,11 +66,12 @@
                     let h = $(this).children('img').innerHeight();
                     let v = $(this).innerHeight();
 
+
                     $(this).children('img').animate({
                         top: -(h - v)
                     }, 10000).animate({
                         top: 0
-                    }, 10000);
+                    }, 1000);
                 });
             }
 
@@ -89,13 +90,13 @@
             $('.ch').css('height', `calc(100% - ${th}px)`);
 
 
-            let height = $('.my-story').innerHeight();
-            let c = $('.ending-wrap').innerHeight();
-
             $('.ending-wrap').mouseover(function () {
+                let sh = $('.my-story').innerHeight();
+                let c = $('.ending').innerHeight();
+
                 $('.my-story').stop().animate({
-                    top: -(height - c)
-                }, 20000, 'linear');
+                    top: -(sh - c)
+                }, 10000, 'linear');
             });
 
             $('.ending-wrap').mouseout(function () {
@@ -111,12 +112,10 @@
             for (let idx in menu) {
                 menu.eq(idx).children('img').click(function () {
                     $('.sc').eq(idx).show()
-                    $('.sc').eq(idx).siblings().hide()           
+                    $('.sc').eq(idx).siblings().hide()
 
-                    
 
-                    if ($('.sc').eq(1).css('display') != 'none') {      
-                        // setTimeout(sc2,1000);
+                    if ($('.sc').eq(1).css('display') != 'none') {
                         $('.me').stop().animate({ opacity: 1 }, function () {
                             $('.card').animate({ opacity: 1 }, function () {
                                 setTimeout(() => {
@@ -127,36 +126,113 @@
                             })
                         })
                     }
-                    else {                       
+                    else {
                         $('.me').css('opacity', 0);
                         $('.card').css({ opacity: 0, transform: 'rotateY(0)' });
                     }
 
-                    if ($('.sc').eq(2).css('display') != 'none') {              
+                    if ($('.sc').eq(2).css('display') != 'none') {
                         $('.skill').animate({
                             opacity: 1
                         }, 2000)
+
+                        $('.bvd').css({
+                            width: 0,
+                            height: 0,
+                            opacity: 0
+                        });
+
                     }
                     else {
                         $('.skill').css('opacity', 0)
                     }
+
+                    if ($('.sc').eq(3).css('display') != 'none') {
+                        $('.pj-content-wrap').animate({
+                            opacity: 1
+                        }, 2000)
+                    }
+                    else {
+                        $('.pj-content-wrap').css('opacity', 0);
+                    }
+
+                    if ($('.sc').eq(4).css('display') != 'none') {
+                        $('.ending-wrap').animate({
+                            width: '100%'
+                        }, 500, function () {
+
+                            $('.my-story').css('opacity', 1)
+                        })
+                    }
+                    else {
+                        $('.my-story').css('opacity', 0)
+                        $('.ending-wrap').css('width', 0);
+                    }
+
                 });
             }
 
+            $('.pf-content').mouseover(function () {
+                $('.card').css('transform', 'rotateY(180deg)')
+            })
+            $('.pf-content').mouseout(function () {
+                $('.card').css('transform', 'rotateY(360deg)')
+            })
+
             let colors = [
-                ['#787d62', '#f8f9fa', '#0d0d0d',],
+                ['#787d62', '#f8f9fa', '#0d0d0d'],
                 ['#ffeb60', '#a451f7', '#ffffff', '#242424'],
-                ['#7E49F2 ', '#ffffff', '#000000',],
+                ['#7E49F2 ', '#ffffff', '#000000'],
                 ['#000000', '#ffffff', '#500000', '#fffadb'],
                 ['#a2c012', '#ffffff', '#222222', "#444444"]
             ]
 
-            for (let i in $('.epj')) {
-
-                for (let j in $('.c')) {
+            for (let i = 0; i < $('.epj').length; i++) {
+                for (let j = 0; j < $('.epj').eq(i).find('.c').length; j++) {
                     $('.epj').eq(i).find('.c').eq(j).find('.c-box').css('background-color', colors[i][j])
                 }
             }
+
+            $('.vd').children('.bn').click(function () {
+                console.log('11.25rem')
+                $('.bvd').animate({
+                    opacity: 1,
+                    width: '100%',
+                    height: $('.sc3').height()
+                }, 200);
+            });
+
+            $(window).resize(function () {
+                $('.bvd').css({ height: $('.sc3').height() })
+            })
+
+            $('.cd').click(function () {
+                $('.bvd').animate({
+                    width: 0,
+                    height: 0,
+                    opacity: 0
+                }, 200);
+            });
+
+            $('.pf-content').css({ height: $('.pf-content').innerWidth() / '2px' })
+
+
+            let pages = [
+                ['https://jjs06.github.io/first_potfolio/','https://jjs06.github.io/first_potfolio/sub_GT.html'],
+                ['https://jjs06.github.io/second_potfolio/',''],
+                ['https://jjs06.github.io/third_potfolio/','https://jjs06.github.io/third_potfolio/sub_pro.html'],
+                ['https://jjs06.github.io/fourth_potfolio/','https://jjs06.github.io/fourth_potfolio/sub.html'],
+                ['https://jjs06.github.io/fifth_potfolio/','https://jjs06.github.io/fifth_potfolio/detail/0']
+            ]
+
+            for(let i = 0; i < $('.epj').length; i++){
+                for(let j =0; j < $('epj').eq(i).find('.bn').length; j++){      
+                    $('.epj').eq(i).find('.bn').eq(j).click(function(){
+                        console.log($('.epj').eq(i).find('.bn').eq(j))
+                    })
+                }
+            }
+
 
         });
     </script>
@@ -173,7 +249,8 @@
 
     <header>
         <div class="box">
-            <img src="img/sign.svg" alt="">
+            <img src="img/sign.svg" alt="sign">
+            <p>1920 * 1080 최적화</p>
         </div>
     </header>
 
@@ -206,62 +283,64 @@
 
             <div class="profil">
                 <h2>PROFIlE</h2>
-                <div class="me"><img src="img/profil_test.png" alt=""></div>
+                <div class="profile-wrap">
+                    <div class="me"><img src="img/profil_test.png" alt="me-hello"></div>
 
-                <div class="pf-content">
-                    <div class="card">
-                        <div class="front">
+                    <div class="pf-content">
+                        <div class="card">
+                            <div class="front">
 
-                            <h3>OH YUJIN</h3>
-                            <!-- <p>오유진</p> -->
-                            <ul>
-                                <li>E-mail: likebook06 @ gmail.com</li>
-                                <li>Git-hub: https://github.com/jjs06/</li>
-                            </ul>
-                            <span>hover me!</span>
+                                <h3>OH YUJIN</h3>
+                                <!-- <p>오유진</p> -->
+                                <ul>
+                                    <li>E-mail: likebook06 @ gmail.com</li>
+                                    <li>Git-hub: https://github.com/jjs06/</li>
+                                </ul>
+                                <span>hover me!</span>
 
-                        </div>
+                            </div>
 
-                        <div class="back">
-                            <div class="licence">
-                                <h3>LICENCE</h3>
-                                <div class="lic-wrap">
-                                    <div class="lic">
-                                        <h4>취득자격</h4>
-                                        <ul class="get">
-                                            <li class="lis">
-                                                <h5>컴퓨터</h5>
-                                                <ul>
-                                                    <li>컴퓨터 활용능력 1급 (21.08)</li>
-                                                </ul>
-                                            </li>
-                                            <li class="lis">
-                                                <h5>어학</h5>
+                            <div class="back">
+                                <div class="licence">
+                                    <h3>LICENCE</h3>
+                                    <div class="lic-wrap">
+                                        <div class="lic">
+                                            <h4>GET</h4>
+                                            <ul class="get">
+                                                <li class="lis">
+                                                    <h5>컴퓨터</h5>
+                                                    <ul>
+                                                        <li>컴퓨터 활용능력 1급 (21.08)</li>
+                                                    </ul>
+                                                </li>
+                                                <li class="lis">
+                                                    <h5>어학</h5>
 
-                                                <ul>
-                                                    <li>상공회의소 한자 3급 (20.07)</li>
-                                                </ul>
-                                            </li>
-                                            <li class="lis">
-                                                <h5>기타</h5>
-                                                <ul>
-                                                    <li>운전면허 (2016.08)</li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                                    <ul>
+                                                        <li>상공회의소 한자 3급 (20.07)</li>
+                                                    </ul>
+                                                </li>
+                                                <li class="lis">
+                                                    <h5>기타</h5>
+                                                    <ul>
+                                                        <li>운전면허 (2016.08)</li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
 
-                                    <div class="lic ">
-                                        <h4>취득예정</h4>
-                                        <ul class="expected">
-                                            <li class="lis">웹 디자인 기능사 (2023년 정기 4회 필기 합격)</li>
-                                        </ul>
-                                    </div>
+                                        <div class="lic ">
+                                            <h4>EXPECTED</h4>
+                                            <ul class="expected">
+                                                <li class="lis">웹 디자인 기능사 (2023년 정기 4회 필기 합격)</li>
+                                            </ul>
+                                        </div>
 
-                                    <div class="lic">
-                                        <span>
-                                            자기계발의 일환으로 <b>정보처리기사</b> 와 <b>토익</b> 을 준비할 예정입니다.
-                                        </span>
+                                        <div class="lic">
+                                            <span>
+                                                자기계발의 일환으로 <b>정보처리기사</b> 와 <b>토익</b> 을 준비할 예정입니다.
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -285,22 +364,25 @@
                             <button class="sks">
                                 <h3>VERSON CONTROL</h3>
                             </button>
+                            <button class="sks">
+                                <h3>SERVER & DATA</h3>
+                            </button>
                         </div>
                     </div>
                     <div class="skill">
                         <div class="sk">
                             <h4>DEVELOPMENT</h4>
                             <div class="sic">
-                                <img src="img/html5.svg" alt="">
-                                <img src="img/css.svg" alt="">
-                                <img src="img/scss.svg" alt="">
-                                <img src="img/js.svg" alt="">
-                                <img src="img/jquery.svg" alt="">
-                                <img src="img/ajax.svg" alt="">
-                                <img src="img/json.svg" alt="">
-                                <img src="img/react.svg" alt="">
-                                <img src="img/redux.svg" alt="">
-                                <img src="img/bootstrap.svg" alt="">
+                                <img src="img/html5.svg" alt="html">
+                                <img src="img/css.svg" alt="css">
+                                <img src="img/scss.svg" alt="scss">
+                                <img src="img/js.svg" alt="js">
+                                <img src="img/jquery.svg" alt="jquery">
+                                <img src="img/ajax.svg" alt="ajax">
+                                <img src="img/json.svg" alt="json">
+                                <img src="img/react.svg" alt="react">
+                                <img src="img/redux.svg" alt="redux">
+                                <img src="img/bootstrap.svg" alt="bootstrap">
                             </div>
                             <p class="ex">
                                 <b>html, css, scss, js, jquery</b> 기본적인 기능과 중급 정도의 응용 기능을 능숙하게 다룰 수 있습니다.
@@ -312,10 +394,10 @@
                         <div class="sk">
                             <h4>GRAPIC DESIGN</h4>
                             <div class="sic">
-                                <img src="img/ps.svg" alt="">
-                                <img src="img/ai.svg" alt="">
-                                <img src="img/figma.svg" alt="">
-                                <img src="img/ppt.svg" alt="">
+                                <img src="img/ps.svg" alt="photoshop">
+                                <img src="img/ai.svg" alt="ilusetration">
+                                <img src="img/figma.svg" alt="figma">
+                                <img src="img/ppt.svg" alt="ppt">
                             </div>
                             <p class="ex">
                                 <b>포토샵, 일러스트</b> 기본적인 기능과 약간의 응용 기능을 능숙하게 다룰 수 있습니다.
@@ -335,6 +417,33 @@
                                 기본적인 기능을 능숙하게 사용 가능합니다.
                             </p>
                         </div>
+                        <div class="sk">
+                            <h4>SERVER & DATA</h4>
+                            <div class="sic">
+                                <img src="img/node-js.svg" alt="node-js">
+                                <img src="img/mysql.svg" alt="mysql">
+                            </div>
+                            <p class="ex">
+                                <b>NODE-JS</b>는 파일(서버)생성과 데이터 연결하는 정도의 기초적인 문법 사용 가능합니다.
+                                <br>
+                                <b>MYSQL</b>은 기초적인 문법(테이블 및 데이터 생성, 읽기, 수정, 삭제) 사용 가능합니다.
+                            </p>
+
+                            <div class="vd">
+                                <video src="img/node.mp4" autoplay loop muted></video>
+                                <button class="bn">크게보기</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bvd">
+                    <div class="bvd-wrap">
+
+                        <video src="img/node.mp4" autoplay loop muted></video>
+
+                        <div class="close">
+                            <button class="cd">X</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -350,19 +459,19 @@
                                 <div class="swiper mySwiper">
                                     <div class="swiper-wrapper">
                                         <div class="swiper-slide">
-                                            <img src="img/pr4main.png" alt="">
+                                            <img src="img/pr4main.png" alt="projedt5">
                                         </div>
                                         <div class="swiper-slide">
-                                            <img src="img/pr4main.png" alt="">
+                                            <img src="img/pr4main.png" alt="projedt4">
                                         </div>
                                         <div class="swiper-slide">
-                                            <img src="img/pr3main.png" alt="">
+                                            <img src="img/pr3main.png" alt="projedt3">
                                         </div>
                                         <div class="swiper-slide">
-                                            <img src="img/pr2main.png" alt="">
+                                            <img src="img/pr2main.png" alt="projedt2">
                                         </div>
                                         <div class="swiper-slide">
-                                            <img src="img/pr4main.png" alt="">
+                                            <img src="img/pr4main.png" alt="projedt1">
                                         </div>
                                     </div>
                                 </div>
@@ -435,12 +544,12 @@
                                         </div>
 
                                         <div class="page">
-                                            <button>Main</button>
-                                            <button>Sub</button>
+                                            <button class="bn">Main</button>
+                                            <button class="bn">Sub</button>
                                         </div>
                                     </div>
                                     <div class="epj">
-                                        <h3>BOOK STORE MILLIE</h3>
+                                        <h3>BOOK STORE MILLIE CLONE CODING</h3>
                                         <div class="exp">
                                             <div class="language">
                                                 <div class="l">
@@ -506,8 +615,8 @@
                                         </div>
 
                                         <div class="page">
-                                            <button>Main</button>
-                                            <button>Sub</button>
+                                            <button class="bn">Main</button>
+                                            <button class="bn">Sub</button>
                                         </div>
                                     </div>
                                     <div class="epj">
@@ -560,14 +669,14 @@
                                                     <br>
                                                     효과는 <b>JQUERY</b>와 <b>CSS ANIMATION</b>으로 주었습니다.
                                                     <br>
-                                                    이번 작업은 팀 프로젝트이니 만큼 다른 팀원들과의 협업과, 다른 팀원들이 작업물 사이의 조화를 염두에 두고 작업하였습니다.
+                                                    이번 작업은 팀 프로젝트이니 만큼 다른 팀원들과의 협업과, 다른 팀원들의 작업물 사이의 조화를 염두에 두고 작업하였습니다.
                                                 </p>
                                             </div>
                                         </div>
 
                                         <div class="page">
-                                            <button>Main</button>
-                                            <button>Sub</button>
+                                            <button class="bn">Main</button>
+                                            <button class="bn">Sub</button>
                                         </div>
                                     </div>
                                     <div class="epj">
@@ -582,6 +691,9 @@
                                                 </div>
                                                 <div class="l">
                                                     <p>CSS</p>
+                                                </div>
+                                                <div class="l">
+                                                    <p>반응형</p>
                                                 </div>
                                             </div>
                                             <div class="people">
@@ -630,8 +742,8 @@
                                         </div>
 
                                         <div class="page">
-                                            <button>Main</button>
-                                            <button>Sub</button>
+                                            <button class="bn">Main</button>
+                                            <button class="bn">Sub</button>
                                         </div>
                                     </div>
                                     <div class="epj">
@@ -690,8 +802,8 @@
                                         </div>
 
                                         <div class="page">
-                                            <button>Main</button>
-                                            <button>Sub</button>
+                                            <button class="bn">Main</button>
+                                            <button class="bn">Sub</button>
                                         </div>
                                     </div>
                                 </div>
@@ -704,22 +816,26 @@
         </div>
         <div class="sc sc5">
             <div class="cradit">
-                <h2>title</h2>
+                <h2>IN CONCLUSON</h2>
                 <div class="ending-wrap ch">
-                    <div class="my-story">
-                        <div class="st st1">
-                            <img src="" alt="">
-                            <span></span>
+                    <div class="ending">
+                        <div class="my-story">
+                            <div class="st st1">
+                                <span>
+                                    안녕하세요. 병아리 개발자 오유진 입니다.
+                                    제 포트폴리오는 어떠셨나요?
+                                </span>
+                                <img src="img/programer2.gif" alt="me-programing">
+                            </div>
+                            <div class="st st2">
+                                <img src="" alt="">
+                                <span></span>
+                            </div>
+                            <div class="st st3">
+                                <h1>THANK YOU ♥</h1>
+                                <img src="img/thanks.png" alt="me-thankyou">
+                            </div>
                         </div>
-                        <div class="st st2">
-                            <span></span>
-                            <img src="" alt="">
-                        </div>
-                        <div class="st st3">
-                            <img src="" alt="">
-                            <span></span>
-                        </div>
-                        <img src="" alt="">
                     </div>
                 </div>
             </div>
@@ -729,19 +845,19 @@
     <div class="bottom">
         <ul>
             <li class="meuu_b">
-                <img src="img/icon1.svg" alt="">
+                <img src="img/icon1.svg" alt="home">
             </li>
             <li class="meuu_b">
-                <img src="img/icon2.svg" alt="">
+                <img src="img/icon2.svg" alt="prfile">
             </li>
             <li class="meuu_b">
-                <img src="img/icon3.svg" alt="">
+                <img src="img/icon3.svg" alt="skill">
             </li>
             <li class="meuu_b">
-                <img src="img/icon4.svg" alt="">
+                <img src="img/icon4.svg" alt="project">
             </li>
             <li class="meuu_b">
-                <img src="img/icon5.svg" alt="">
+                <img src="img/icon5.svg" alt="massage">
             </li>
         </ul>
     </div>

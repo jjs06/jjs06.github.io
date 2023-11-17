@@ -5,7 +5,7 @@
 
 #app {
     text-align: center;
-    font-size: 150px;
+    font-size: 9.375rem;
     font-family: $title;
     filter: drop-shadow(5px 5px 5px rgba(136, 54, 192, 0.5));
     animation: textclip 3s linear infinite;
@@ -15,8 +15,8 @@
 
 .swiper {
 
-    width: 80%;
-    height: 85%;
+    width: 83%;
+    height: 90%;
 }
 
 .swiper-slide {
@@ -25,6 +25,7 @@
     justify-content: center;
     border-radius: 18px;
     position: relative;
+    border: 1px solid $m_dv;
 
     &:hover {
         cursor: url('../img/cusor_pointer2.svg'), auto;
@@ -45,15 +46,11 @@
     position: relative;
 
     .sc {
-        padding: 80px 0 120px 0;
+        padding: 5rem 0 6.25rem 0;
         width: 100%;
         height: 100%;
         position: absolute;
         top: 0;
-
-        // &:not(:first-child){
-        //     display: none;
-        // }
 
         &1 {
 
@@ -65,8 +62,8 @@
                 justify-content: center;
 
                 .spinner-box {
-                    width: 300px;
-                    height: 300px;
+                    width: 18.75rem;
+                    height: 18.75rem;
                     margin-top: 30px;
                     display: flex;
                     justify-content: center;
@@ -83,29 +80,29 @@
                 }
 
                 .blue-orbit {
-                    width: 247.5px;
-                    height: 247.5px;
+                    width: 15.48675rem;
+                    height: 15.48675rem;
                     border: 1px solid $m_ll;
                     animation: spin3D 3s linear .2s infinite;
                 }
 
                 .green-orbit {
-                    width: 180px;
-                    height: 180px;
+                    width: 11.25rem;
+                    height: 11.25rem;
                     border: 1px solid $m_lb;
                     animation: spin3D 2s linear 0s infinite;
                 }
 
                 .red-orbit {
-                    width: 135px;
-                    height: 135px;
+                    width: 8.4375rem;
+                    height: 8.4375rem;
                     border: 1px solid $m_dp;
                     animation: spin3D 1s linear 0s infinite;
                 }
 
                 .white-orbit {
-                    width: 90px;
-                    height: 90px;
+                    width: 5.625rem;
+                    height: 5.625rem;
                     border: 2px solid $m_dv;
                     animation: spin3D 10s linear 0s infinite;
                 }
@@ -129,170 +126,165 @@
 
             .profil {
                 @include basic_setting;
-                display: flex;
-                flex-wrap: wrap;
 
-                h2 {
-                    width: 100%;
-                }
+                .profile-wrap {
 
-                .me {
-                    width: 20%;
-                    opacity: 0;
+                    display: flex;
 
-                    img {
+                    h2 {
                         width: 100%;
                     }
-                }
 
-                .pf-content {
-                    width: 80%;
-                    height: 600px;
-                    perspective: 2400px;
-
-                    .card {
-
-                        width: 100%;
-                        height: 100%;
-                        position: relative;
-                        transition: .4s;
-                        transform-style: preserve-3d;                        
-                        // display: none;
+                    .me {
+                        width: 20%;
                         opacity: 0;
 
-                        .front,
-                        .back {
-                            position: absolute;
+                        img {
+                            width: 100%;
+                        }
+                    }
+
+                    .pf-content {
+                        width: 80%;
+                        perspective: 2400px;
+
+                        .card {
+
                             width: 100%;
                             height: 100%;
-                            backface-visibility: hidden;
+                            position: relative;
+                            transition: .4s;
+                            transform-style: preserve-3d;
+                            opacity: 0;
 
-                            display: flex;
-                            flex-direction: column;
-                            align-items: center;
-                            justify-content: center;
-
-                            background-color: #000;
-                            color: #fff;
-
-                            border: 1px solid #333;
-                            border-radius: 10px;
-                            box-shadow: 5px 5px 5px #777;
-
-                            overflow: hidden;
-                        }
-
-                        .front {
-
-                            &::after {
-                                content: '';
-                                width: 256px;
-                                height: 84px;
-
-                                background: {
-                                    image: url('../img/sign.svg');
-                                    position: center;
-                                    repeat: no-repeat;
-                                }
-
+                            .front,
+                            .back {
                                 position: absolute;
-                                right: 2%;
-                                bottom: 2%;
-                            }
-
-                            p {
-                                font-size: 45px;
-                                font-weight: bold;
-                                margin-bottom: 30px;
-                            }
-
-                            ul {
-                                font-size: 18px;
-                            }
-
-                            span {
-                                display: inline-block;
-                                margin-top: 30px;
-
-                                font-size: 18px;
-                                color: $m_ll;
-                                font-weight: bold;
-                            }
-                        }
-
-                        .back {
-                            transform: rotateY(180deg);
-
-                            .licence {
                                 width: 100%;
-                                padding: 0 5%;
+                                height: 100%;
+                                backface-visibility: hidden;
 
-                                h3 {
-                                    text-align: center;
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                                justify-content: center;
+
+                                background-color: #000;
+                                color: #fff;
+
+                                border: 1px solid #333;
+                                border-radius: 10px;
+                                box-shadow: 5px 5px 5px #777;
+
+                                overflow: hidden;
+                            }
+
+                            .front {
+
+                                &::after {
+                                    content: '';
+                                    width: 16rem;
+                                    height: 5.25rem;
+
+                                    background: {
+                                        image: url('../img/sign.svg');
+                                        position: center;
+                                        repeat: no-repeat;
+                                    }
+
+                                    position: absolute;
+                                    right: 2%;
+                                    bottom: 2%;
                                 }
 
-                                .lic-wrap {
+                                p {
+                                    font-size: 2.8125rem;
+                                    font-weight: bold;
+                                    margin-bottom: 1.875rem;
+                                }
+
+                                ul {
+                                    font-size: 1.125rem;
+                                }
+
+                                span {
+                                    display: inline-block;
+                                    margin-top: 1.875rem;
+
+                                    font-size: 1.125rem;
+                                    color: $m_ll;
+                                    font-weight: bold;
+                                }
+                            }
+
+                            .back {
+                                transform: rotateY(180deg);
+
+                                .licence {
                                     width: 100%;
-                                    display: flex;
-                                    justify-content: center;
+                                    padding: 0 5%;
 
-                                    .lic {
-                                        padding: 0 2%;
+                                    h3 {
+                                        text-align: center;
+                                    }
 
-                                        &:first-child,
-                                        &:nth-of-type(2) {
-                                            width: 37.5%;
-                                        }
+                                    .lic-wrap {
+                                        width: 100%;
+                                        display: flex;
+                                        justify-content: center;
 
-                                        .get {
-                                            width: 100%;
+                                        .lic {
+                                            padding: 0 2%;
 
-                                            .lis {
+                                            &:first-child,
+                                            &:nth-of-type(2) {
+                                                width: 37.5%;
+                                            }
+
+                                            .get {
                                                 width: 100%;
+
+                                                .lis {
+                                                    width: 100%;
+                                                    display: flex;
+                                                    align-items: center;
+                                                    padding: 1% 0;
+
+                                                    h5 {
+                                                        width: 30%;
+                                                        margin-bottom: 0;
+                                                    }
+                                                }
+                                            }
+
+                                            .expextid {
+                                                width: 100%;
+
+                                                .lis {
+                                                    width: 100%;
+                                                    padding: 1% 0;
+                                                }
+                                            }
+
+                                            &:last-child {
+                                                width: 25%;
+                                                border: 2px solid #fff;
+                                                border-radius: 10px;
                                                 display: flex;
                                                 align-items: center;
-                                                padding: 1% 0;
 
-                                                h5 {
-                                                    width: 30%;
+                                                b {
+                                                    color: #fff;
                                                 }
                                             }
                                         }
-
-                                        .expextid {
-                                            width: 100%;
-
-                                            .lis {
-                                                width: 100%;
-                                                padding: 1% 0;
-                                            }
-                                        }
-
-                                        &:last-child {
-                                            width: 25%;
-                                            border: 2px solid #fff;
-                                            border-radius: 10px;
-                                            display: flex;
-                                            align-items: center;
-
-                                            b {
-                                                text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
-                                            }
-                                        }
                                     }
-                                }
 
+                                }
                             }
                         }
                     }
-
-                    &:hover {
-                        .card {
-                            transform: rotateY(180deg);
-                        }
-                    }
                 }
-
 
             }
 
@@ -345,7 +337,7 @@
 
 
                                 &:not(:last-child) {
-                                    margin-bottom: 30px;
+                                    margin-bottom: 1.875rem;
                                 }
 
                                 h3 {
@@ -371,6 +363,8 @@
                         position: relative;
                         opacity: 0;
 
+                        @include frame;
+
                         .sk {
                             width: 85%;
                             height: 80%;
@@ -383,7 +377,7 @@
                             left: 50%;
                             transform: translate(-50%, -50%);
 
-                            border: 1px solid $m_dv;
+
                             background-color: #fff;
 
                             &:not(:first-child) {
@@ -399,7 +393,26 @@
                                 margin-bottom: 15px;
 
                                 img {
-                                    width: 65px;
+                                    width: 4.0625rem;
+                                }
+                            }
+
+                            .vd {
+                                margin-top: 15px;
+                                display: flex;
+                                align-items: flex-end;
+
+                                video {
+                                    width: 50.63291139%;
+                                    min-width: 256px;
+                                    border: 1px solid $m_dv;
+                                }
+
+                                .bn {
+                                    width: 5.625rem;
+                                    height: 2.8125rem;
+                                    font-size: 1.125rem;
+                                    margin-left: 30px;
                                 }
                             }
                         }
@@ -407,6 +420,69 @@
                 }
             }
 
+            .bvd {
+                width: 0;
+                height: 0;
+                opacity: 0;
+                position: absolute;
+                top: 5rem;
+                left: 50%;
+                transform: translateX(-50%);
+                background-color: #fff;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+
+
+                .bvd-wrap {
+                    height: 100%;
+                    position: absolute;
+                    // overflow: hidden;
+
+                    &::after {
+                        content: '';
+                        width: 102%;
+                        height: 100%;
+                        position: absolute;
+                        top: 0;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        z-index: 10;
+
+                        background: {
+                            image: url('../img/bdtest3.png');
+                            size: 100% 100%;
+                            repeat: no-repeat;
+                            position: center;
+                        }
+                    }
+
+
+
+                    video {
+                        height: 100%;
+                    }
+
+                    .close {
+                        // padding: 5px;
+                        position: absolute;
+                        top: 5px;
+                        right: 25px;
+                        z-index: 15;
+
+                        .cd {
+                            width: 45px;
+                            height: 45px;
+                            border-radius: 50%;
+                            border: 1px solid $m_dv;
+                            background-color: #fff;
+                            color: $m_dv;
+                        }
+                    }
+                }
+            }
         }
 
         &4 {
@@ -419,6 +495,7 @@
                     .pj-content-wrap {
                         width: 100%;
                         height: 100%;
+                        opacity: 0;
 
                         .pj-content {
                             width: 100%;
@@ -427,7 +504,7 @@
                             justify-content: space-between;
 
                             .pi {
-                                width: 50%;
+                                width: 55%;
                                 height: 100%;
                                 display: flex;
                                 justify-content: center;
@@ -439,6 +516,11 @@
                                 height: 100%;
                                 overflow: hidden;
 
+                                border: 1px solid $m_dv;
+                                background-color: #fff;
+                                box-shadow: (3px -3px $m_ll), (6px -6px $m_dp), (9px -9px $m_dv), (12px -12px $m_lb), (15px -15px $m_db);
+                                ;
+
                                 .pj-wrap {
                                     width: 500%;
                                     height: 100%;
@@ -447,23 +529,24 @@
                                     .epj {
                                         width: 20%;
                                         height: 100%;
-                                        padding: 15px 1.5%;
+                                        padding: 25px 1.5%;
 
-                                        border: 1px solid $m_dv;
-                                        background-color: #fff;
+                                        // border: 1px solid $m_dv;
+                                        // background-color: #fff;
 
                                         .exp {
                                             width: 100%;
-                                            height: 300px;
-                                            overflow-y: scroll;
+                                            height: 18.75rem;
+                                            overflow: scroll;
 
-                                            padding-right: 15px;
+                                            padding-right: 0.9375rem;
 
-                                            &::-webkit-scrollbar{
-                                                width: 10px;
+                                            &::-webkit-scrollbar {
+                                                width: 0.625rem;
+                                                height: 0.625rem;
                                             }
 
-                                            &::-webkit-scrollbar-thumb{
+                                            &::-webkit-scrollbar-thumb {
                                                 background-color: $m_dv;
                                                 border-radius: 10px;
                                             }
@@ -488,12 +571,12 @@
 
 
                                                     &:not(:last-child) {
-                                                        margin-right: 15px;
+                                                        margin-right: 0.9375rem;
                                                     }
 
 
                                                     p {
-                                                        padding: 6px 12px;
+                                                        padding: 0.375rem 0.75rem;
                                                         font-weight: bold;
 
                                                         @include text_gradient;
@@ -509,14 +592,14 @@
                                                     display: flex;
 
                                                     .c {
-                                                        width: 100px;
+                                                        width: 6.25rem;
                                                         display: flex;
                                                         flex-direction: column;
                                                         align-items: center;
 
                                                         .c-box {
-                                                            width: 50px;
-                                                            height: 50px;
+                                                            width: 3.125rem;
+                                                            height: 3.125rem;
                                                             border-radius: 50%;
                                                             border: 1px solid #000;
                                                         }
@@ -533,24 +616,10 @@
                                             }
                                         }
 
-                                        .page{
-                                            margin-top: 45px;
+                                        .page {
+                                            margin-top: 30px;
                                             display: flex;
                                             justify-content: space-around;
-
-
-                                            button{
-                                                width: 120px;
-                                                height: 60px;
-                                                background-color: transparent;
-                                                box-shadow: (2px 2px 2px #000),(-2px -2px 6px inset);
-
-                                                &:hover,&:active{
-                                                    box-shadow: (-2px -2px 2px #000),(2px 2px 6px inset);
-                                                    
-                                                    @include text_gradient;
-                                                }
-                                            }
                                         }
                                     }
                                 }
@@ -566,31 +635,87 @@
             .cradit {
                 @include basic_setting;
 
-                .btns {
-                    width: 100%;
-                    height: 60px;
-                    background-color: #000;
-
-                }
+                display: flex;
+                flex-direction: column;
+                align-items: center;
 
                 .ending-wrap {
-                    width: 100%;
-                    overflow: hidden;
-                    position: relative;
+                    width: 0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
 
-                    .my-story {
-                        width: 100%;
-                        position: absolute;
-                        top: 0;
-                        left: 0;
+                    @include frame;
 
-                        .st{
+                    .ending {
+
+                        width: 85%;
+                        height: 90%;
+                        overflow: hidden;
+                        position: relative;
+
+                        .my-story {
                             width: 100%;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            opacity: 0;
 
-                            img{
-                                width: 200px;
-                                height: 400px;
-                                background-color: $m_ll;
+                            .st {
+                                width: 100%;
+
+                                img {
+                                    width: 25rem;
+                                }
+
+                                &:last-child {
+                                    display: flex;
+                                    flex-direction: column;
+                                    align-items: center;
+
+                                    h1 {
+                                        position: relative;
+                                        padding: 0 15px;
+                                        color: #fff;
+                                        background-color: $m_dp;
+
+                                        &::after {
+                                            content: '';
+                                            position: absolute;
+                                            bottom: 0;
+                                            left: 65%;
+                                            width: 0;
+                                            height: 0;
+                                            border: 55px solid transparent;
+                                            border-top-color: $m_dp;
+                                            border-bottom: 0;
+                                            border-left: 0;
+                                            margin-left: -27.5px;
+                                            margin-bottom: -55px;
+                                        }
+                                    }
+
+                                    img {
+                                        width: 12.5rem;
+                                    }
+                                }
+
+                                &1,
+                                &2 {
+                                    img {
+                                        vertical-align: middle;
+                                    }
+                                }
+
+                                &1 {
+                                    text-align: right;
+
+                                    span {
+                                        text-align: left;
+                                        font-size: 1.125rem;
+                                        margin-right: 60px;
+                                    }
+                                }
                             }
                         }
                     }

@@ -15,11 +15,6 @@ $m_dv: #8836BF;
 $m_dp: #934EA6;
 $m_ll: #F1C2F2;
 
-@mixin basic_setting {
-    width: 1500px;
-    height: 100%;
-    margin: 0 auto;
-}
 
 @mixin text_gradient {
     background-image: linear-gradient(-225deg,
@@ -28,7 +23,7 @@ $m_ll: #F1C2F2;
             $m_dv 50%,
             $m_dp 75%,
             $m_ll 100%);
-    
+
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -46,6 +41,46 @@ $m_ll: #F1C2F2;
         clip: content-box, border-box;
     }
 }
+
+@mixin frame {
+    background: {
+        image: url('../img/bdtest2.png');
+        size: 100% 100%;
+        repeat: no-repeat;
+        position: center;
+    }
+}
+
+@mixin basic_setting {   
+    width: 78.125%;       
+    height: 100%;
+    margin: 0 auto;
+}
+
+@media (max-width: 1199px) {
+    :root {
+        font-size: 9.5px;
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1365px) {
+    :root {
+        font-size: 11.5px;
+    }
+}
+
+@media (min-width: 1366px) and (max-width:1499px){
+    :root {
+        font-size: 13px;
+    }
+}
+
+@media (min-width: 1500px) {
+    :root {
+        font-size: 1.67890871vh;
+    }   
+}
+
 
 * {
     margin: 0;
@@ -114,42 +149,59 @@ h5 {
 }
 
 h1 {
-    font-size: 180px;
+    font-size: 5rem;
+    text-align: center;
 }
 
 h2 {
-    font-size: 60px;
-    margin-bottom: 50px;
+    font-size: 3.75rem;
+    margin-bottom: 3.125rem;
 }
 
 h3 {
-    font-size: 45px;
-    margin-bottom: 30px;
+    font-size: 2.8125rem;
+    margin-bottom: 1.875rem;
 }
 
 h4 {
-    font-size: 30px;
-    margin-bottom: 15px;
+    font-size: 1.875rem;
+    margin-bottom: 1.25rem;
 }
 
 h5 {
-    font-size: 24px;
-    margin-bottom: 15px;
+    font-size: 1.5rem;
+    margin-bottom: 0.9375rem;
 }
 
 b {
-    font-size: 18px;
+    font-size: 1.125rem;
 
     color: $m_db;
 }
 
 button {
-    font-family: $title;
+    font-family: $title, $main_text;
     font-weight: bold;
-    font-size: 24px;
+    font-size: 1.5rem;
 
     &:hover {
         cursor: url('../img/cusor_pointer2.svg'), auto;
+    }
+}
+
+.bn {
+    width: 7.5rem;
+    height: 3.75rem;
+    background-color: transparent;
+    box-shadow: (2px 2px 2px $m_dv), (-2px -2px 6px $m_dv inset);
+    border-color: $m_dv;
+    color: $m_db;
+
+    &:hover,
+    &:active {
+        box-shadow: (-2px -2px 2px $m_dv), (2px 2px 6px $m_dv inset);
+
+        @include text_gradient;
     }
 }
 
@@ -159,7 +211,7 @@ button {
 
 header {
     width: 100%;
-    height: 45px;
+    height: 2.8125rem;
     position: fixed;
     top: 0;
     z-index: 20;
@@ -170,9 +222,10 @@ header {
     justify-content: center;
 
     .box {
-        width: 1500px;
+        width: 78.125%;
         display: flex;
         align-items: center;
+        justify-content: space-between;
 
         img {
             width: 128px;
@@ -184,7 +237,7 @@ header {
 
 .bottom {
     width: 100%;
-    height: 80px;
+    height: 5rem;
     position: fixed;
     bottom: 0;
     z-index: 20;
@@ -194,17 +247,21 @@ header {
     justify-content: center;
 
     ul {
-        width: 1500px;
+        width: 78.125%;
         height: 100%;
         display: flex;
         justify-content: space-between;
         align-items: center;
 
         li {
-            width: 50px;
+            width: 3.125rem;
 
             &:hover {
                 cursor: url('../img/cusor_pointer2.svg'), auto;
+
+                img {
+                    scale: 1.2;
+                }
             }
 
             img {
@@ -213,3 +270,5 @@ header {
         }
     }
 }
+
+
