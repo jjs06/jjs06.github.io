@@ -700,20 +700,15 @@
                                     }
                                 }
 
-                                &1,
-                                &2 {
+
+                                &1,&2 {
+                                    display: flex;
+                                    align-items: center;
+                                    span {
+                                        font-size: 1.5rem;
+                                    }
                                     img {
                                         vertical-align: middle;
-                                    }
-                                }
-
-                                &1 {
-                                    text-align: right;
-
-                                    span {
-                                        text-align: left;
-                                        font-size: 1.125rem;
-                                        margin-right: 60px;
                                     }
                                 }
                             }

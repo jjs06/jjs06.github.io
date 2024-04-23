@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>js portfolio</title>
 
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -218,21 +218,18 @@
 
 
             let pages = [
-                ['https://jjs06.github.io/first_potfolio/','https://jjs06.github.io/first_potfolio/sub_GT.html'],
-                ['https://jjs06.github.io/second_potfolio/',''],
-                ['https://jjs06.github.io/third_potfolio/','https://jjs06.github.io/third_potfolio/sub_pro.html'],
-                ['https://jjs06.github.io/fourth_potfolio/','https://jjs06.github.io/fourth_potfolio/sub.html'],
-                ['https://jjs06.github.io/fifth_potfolio/','https://jjs06.github.io/fifth_potfolio/detail/0']
+                ['https://jjs06.github.io/fifth_potfolio/'],
+                ['https://jjs06.github.io/fourth_potfolio/', 'https://jjs06.github.io/fourth_potfolio/sub.html'],
+                ['https://jjs06.github.io/third_potfolio/', 'https://jjs06.github.io/third_potfolio/sub_pro.html'],
+                ['https://jjs06.github.io/second_potfolio/'],
+                ['https://jjs06.github.io/first_potfolio/', 'https://jjs06.github.io/first_potfolio/sub_GT.html']
             ]
 
-            for(let i = 0; i < $('.epj').length; i++){
-                for(let j =0; j < $('epj').eq(i).find('.bn').length; j++){      
-                    $('.epj').eq(i).find('.bn').eq(j).click(function(){
-                        console.log($('.epj').eq(i).find('.bn').eq(j))
-                    })
+            for (let i = 0; i < $('.epj').length; i++) {
+                for (let j = 0; j < $('.epj').eq(i).find('.bn').length; j++) {
+                    $('.epj').eq(i).find('.bn').eq(j).attr('onclick', `window.open('${pages[i][j]}')`)
                 }
             }
-
 
         });
     </script>
@@ -310,6 +307,7 @@
                                                 <li class="lis">
                                                     <h5>컴퓨터</h5>
                                                     <ul>
+                                                        <li>웹디자인 기능사 (24.04)</li>
                                                         <li>컴퓨터 활용능력 1급 (21.08)</li>
                                                     </ul>
                                                 </li>
@@ -332,7 +330,7 @@
                                         <div class="lic ">
                                             <h4>EXPECTED</h4>
                                             <ul class="expected">
-                                                <li class="lis">웹 디자인 기능사 (2023년 정기 4회 필기 합격)</li>
+                                                <li class="lis">NOT YET</li>
                                             </ul>
                                         </div>
 
@@ -459,7 +457,7 @@
                                 <div class="swiper mySwiper">
                                     <div class="swiper-wrapper">
                                         <div class="swiper-slide">
-                                            <img src="img/pr4main.png" alt="projedt5">
+                                            <img src="img/pr5main.png" alt="projedt5">
                                         </div>
                                         <div class="swiper-slide">
                                             <img src="img/pr4main.png" alt="projedt4">
@@ -471,7 +469,7 @@
                                             <img src="img/pr2main.png" alt="projedt2">
                                         </div>
                                         <div class="swiper-slide">
-                                            <img src="img/pr4main.png" alt="projedt1">
+                                            <img src="img/pr1main.png" alt="projedt1">
                                         </div>
                                     </div>
                                 </div>
@@ -545,7 +543,6 @@
 
                                         <div class="page">
                                             <button class="bn">Main</button>
-                                            <button class="bn">Sub</button>
                                         </div>
                                     </div>
                                     <div class="epj">
@@ -743,7 +740,6 @@
 
                                         <div class="page">
                                             <button class="bn">Main</button>
-                                            <button class="bn">Sub</button>
                                         </div>
                                     </div>
                                     <div class="epj">
@@ -823,13 +819,19 @@
                             <div class="st st1">
                                 <span>
                                     안녕하세요. 병아리 개발자 오유진 입니다.
+                                    <br>
                                     제 포트폴리오는 어떠셨나요?
+                                    <br>
+                                    프로젝트를 진행하면서 즐거움도 있었지만, 어려운 점들도 있었습니다. 원하는 효과를 구현하기 위해 몇날 며칠을 고생하기도 하였고, 팀 프로젝트 진행하며 코드를 합치는 과정에서 멀쩡했던 코드들이 자꾸 오류를 내 애를 먹기도 하였습니다. 하지만 그 어려움마저도 저에게는 중요한 학습의 기회였습니다. 문제에 부딪힐 때마다, 저는 배우고, 탐색하고, 소통하며 결국 해결책을 찾아냈습니다.
+                                    
                                 </span>
                                 <img src="img/programer2.gif" alt="me-programing">
                             </div>
                             <div class="st st2">
-                                <img src="" alt="">
-                                <span></span>
+                                <img src="img/programer2.gif" alt="me-programing">
+                                <span>                                    <br>
+                                    저는 기술을 통해 사람들의 삶을 더 편리하게 만드는 것을 목표로 합니다. 회사의 목표와 메시지가 사용자에게 정확하게 전달되도록, 그리고 무엇보다 사용자가 서비스를 쉽고 편리하게 이용할 수 있도록 하는 것, 이것이 제가 추구하는 개발자의 모습입니다.
+                                    앞으로도 저는 계속해서 배우고, 성장하며, 사용자 중심의 개발을 이어 나가고 싶습니다.</span>
                             </div>
                             <div class="st st3">
                                 <h1>THANK YOU ♥</h1>

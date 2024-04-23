@@ -773,14 +773,13 @@ header .box img {
 .section_worap .sc5 .cradit .ending-wrap .ending .my-story .st:last-child img {
   width: 12.5rem;
 }
+.section_worap .sc5 .cradit .ending-wrap .ending .my-story .st1, .section_worap .sc5 .cradit .ending-wrap .ending .my-story .st2 {
+  display: flex;
+  align-items: center;
+}
+.section_worap .sc5 .cradit .ending-wrap .ending .my-story .st1 span, .section_worap .sc5 .cradit .ending-wrap .ending .my-story .st2 span {
+  font-size: 1.5rem;
+}
 .section_worap .sc5 .cradit .ending-wrap .ending .my-story .st1 img, .section_worap .sc5 .cradit .ending-wrap .ending .my-story .st2 img {
   vertical-align: middle;
-}
-.section_worap .sc5 .cradit .ending-wrap .ending .my-story .st1 {
-  text-align: right;
-}
-.section_worap .sc5 .cradit .ending-wrap .ending .my-story .st1 span {
-  text-align: left;
-  font-size: 1.125rem;
-  margin-right: 60px;
-}
+}/*# sourceMappingURL=main.css.map */
